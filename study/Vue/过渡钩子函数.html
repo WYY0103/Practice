@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: #f00;
+            border-radius: 50%;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <!-- 
+
+        transition   凡是写动画效果  都需要用这个标签括起来 
+        @before-enter  动画加载前
+        @enter         动画进行中
+        @after-enter   动画结束后
+
+        使用场景  当你遇到动画的时候  用这三个事件
+
+
+
+     -->
+
+    <div id="app">
+        <button @click="fn()">click</button>
+        <transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+            <div id="div1" v-show="show"></div>
+        </transition>
+    </div>
+
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                show: false
+            },
+            methods: {
+                fn(){
+                    this.show = true;
+                },
+                beforeEnter(el){
+                    // console.log(el);
+                    el.style.transform ="translate(0,0)"
+                },
+                enter(el){
+
+                    el.offsetWidth;
+					
+					// 规定慢速开始，然后变快，然后慢速结束的过渡效果 相对于匀速，中间快，两头慢
+                    el.style.transition ="transform 2s ease"
+                    el.style.transform ="translate(150px,300px)"
+                },
+                afterEnter(){
+                    
+                    this.show = false;
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

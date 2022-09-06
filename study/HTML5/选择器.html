@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="rapper" class="con">hello</div>
+    <div>word</div>
+
+    <ul>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+
+    </ul>
+
+    <script>
+
+
+        /*
+            获取元素  querySelector   只返回第一个元素
+            根据id查询 #id
+            根据class查询  .class
+            根据标签名  标签名
+        */
+        var odiv = document.querySelector('#rapper');
+        console.log(odiv);
+        var odiv1 = document.querySelector('.con');
+        console.log(odiv1);
+
+        var odiv2 = document.querySelector('div');
+        console.log(odiv2);
+
+
+        /* 
+            querySelectorAll  获取所有满足条件的元素
+                返回的是一个类数组（nodelist）  不是一个真正的数组，只有一个length属性
+        */
+        var oli = document.querySelectorAll('li');
+        console.log(oli);
+
+        
+
+
+    </script>
+    
+</body>
+</html>

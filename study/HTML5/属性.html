@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    
+    <!-- 
+        给元素设置自定义属性 
+        第一种 不可以再html中看到
+        1.对象.属性名 (属性值)
+        2.对象.setAttribute(属性名，属性值)
+        3.对象.dataset.属性名 (data-xxx) 与第四种相似
+        4.在标签中设置属性  data-属性名   <div data-name="cool">123</div> 
+
+    -->
+    <!-- 
+        获取元素属性
+        1.对象.属性名
+        2.对象.getAttribute(属性名)
+        3.对象.dataset.属性名
+        4.对象.dataset.属性名
+
+        由于3和4比较相似，所以获取元素属性一样，
+        但是对于第四种设置在标签中属性名类似data-first-name则不能采用第3种方法，
+        要采用驼峰的方式来获取  例如对象.dataset.firstName
+     -->
+  
+
+
+    <!-- 在标签中设置属性data-属性名 -->
+    <div data-name="" data-first-name="">123</div>
+     <!-- 对于添加在标签中的这种属性可以用在图片的懒加载 -->
+     <img data-src="" src="" alt="">
+
+    <script>
+        var odiv1 = document.querySelector('div');
+        // 添加属性
+        // 对象.属性
+        odiv1.index = 1;
+        // setAttribute(属性名，属性值)
+        odiv1.setAttribute('name','zs');
+        // 对象名.dataset.属性名
+        odiv1.dataset.age = 18;
+
+
+        // 获取元素属性
+        console.log(odiv1.index);
+        console.log(odiv1.getAttribute('name'));
+        
+        // console.log(odiv1.age);这样的值为undefined
+        console.log(odiv1.dataset.age);
+        console.log(odiv1.dataset.name);
+        console.log(odiv1.dataset.firstName);
+
+        
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .box {
+            width: 100%;
+            height: 100px;
+            background: #ddd;
+            margin: 50px 0;
+            line-height: 100px;
+            text-align: center;
+            color: #fff;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <script>
+
+        var aBox = document.getElementsByClassName("box");
+        var a = 0, b = 0, c = 0;
+
+        aBox[0].onmousemove = function () {
+            this.innerText = ++a;
+        }
+
+        // 函数防抖   是指触发事件N秒中内，函数只执行一次，如果在N秒内再次触发事件，则会重新计时（将上一次的清除，进行下一次）
+        // var timer = null;
+        // aBox[1].onmousemove = function () {
+
+        //     clearTimeout(timer);
+        //     timer = setTimeout( ()=> {
+        //         this.innerText = ++b;
+        //     }, 1000)
+
+        // }
+
+
+        // 事件处理函数
+        function foo(num) {
+            b += num;
+            this.innerText = b;
+        }
+
+        // 防抖函数
+        function debounce(fn, delay, ...arg) {
+            var timer = null;
+            return function () {
+                var con = this;
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    fn.apply(con, arg);
+                }, delay)
+            }
+        }
+
+        aBox[1].onmousemove = debounce(foo, 1000, 10);
+
+
+        // 节流 就是指连续触发事件n秒内只执行一次
+        // var timer = null;
+        // aBox[2].onmousemove = function () {
+
+        //     var context = this;
+        //     if (timer == null) {
+        //         timer = setTimeout(function () {
+        //             timer = null;
+        //             context.innerText = ++c;
+        //         }, 1000)
+        //     }
+        // }
+
+
+
+        function foo2(){
+            this.innerText = ++c;
+        }
+
+        function throttle(fn,time){
+            var timer = null;
+            return function(){
+                var context = this;
+                if(timer == null){
+                    timer = setTimeout(function(){
+                        timer = null;
+                        fn.apply(context);
+                    },time)
+                }
+
+            }
+        }
+
+        aBox[2].onmousemove = throttle(foo2,1000);
+
+    </script>
+
+
+
+
+</body>
+
+</html>

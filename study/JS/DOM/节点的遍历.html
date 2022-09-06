@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+        寻找节点的父亲、孩子等 
+        1 nextSibling  下一个兄弟
+        2 previousSibling   上一个兄弟
+        3 firstChild   第一个孩子
+        4 lastChild    最后一个孩子
+    
+    
+    
+    -->
+
+    <div id="div1">hahahha</div>
+    <p>hehehe</p>
+
+    <ul id="ul1">
+
+        <li>111</li>
+        <li>
+            222
+        </li>
+    </ul>
+
+    
+
+    
+
+    <script>
+
+        var div1 = document.getElementById('div1');
+
+        var ul1 = document.getElementById('ul1');
+        // 找到下一个兄弟节点
+       // console.log(div1.nextSibling);//找到的是回车加空格  "\n    "
+        // 找到下一个元素兄弟节点(不支持ie浏览器)
+        // console.log(div1.nextElementSibling);
+
+        // 封装一个寻找下一个元素兄弟节点
+        function next_brother(elem){
+            do{
+                elem = elem.nextSibling;
+
+            }while(elem && elem.nodeType != 1)
+
+            // 循环要两个条件   1 能找到(当为空null时找不到)  2 节点类型为元素
+            return elem;
+
+        }
+
+        // console.log(next_brother(div1));
+
+        // 寻找第一个孩子元素
+        function first_Child(elem){
+
+            elem = elem.firstChild;
+            if(elem != 1){
+                elem = next_brother(elem);
+            }
+            return elem;
+        }
+
+        console.log(first_Child(ul1));
+
+
+
+    </script>
+    
+</body>
+</html>

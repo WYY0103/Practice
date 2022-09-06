@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        var s1 = "Hello,";
+        s1 = s1 + "World!";
+
+        // s1 = s1 +"!!!!";
+        // 或
+        s1 += "!!!!";
+
+        console.log(s1)
+
+
+        c = 12;
+        // c++  先参与运算 再++
+
+        /*
+
+        console.log(c++); //12 
+        console.log(c)
+
+        */
+        // ++c 先++  再参与运算
+        console.log(++c);//13
+
+        c = c + 12;  //c += 12;
+        c = c - 12;  //c -= 12
+
+        /*
+            要注意的是，js连接字符串时也使用“＋”号。当字符串与数字相遇时 字符串拼接
+            - * /  隐式将字符串转成数字 进行运算，如果不能运算 得到NAN
+        */
+
+        var x = "abc";
+        var y = 123;
+        console.log(x + y); // "abc123"
+
+        var a = 123;
+        var b = "456";
+        console.log(a + b); //"123456"
+
+        var e = 123;
+        var f = "456";
+        var g = 'abc'
+
+        console.log(e - f) //-333 
+        console.log(e - g) //NAN = not a number 
+
+
+
+        var num = 23 + 45;
+        console.log("23+45等于" + num);  //"23+45等于68"
+        console.log("23+45等于" + 23 + 45); // "23+45等于2345"
+
+        var num = 98;
+        console.log(num >= 90 && num % 2 == 0);
+
+        console.log(num >= 80 && num <= 90); //80 - 90 false
+
+
+        // 小于 <
+        // 大于 >
+        // 小于或等于 <=
+        // 大于或等于 >=
+        // 相等 ==
+        // 不相等 !=
+
+        //== 比较值相等 
+        console.log(1 == '1'); //true
+        //=== 比较值和类型
+        console.log(1 === '1'); //false
+
+        // &&逻辑与,当两边的值都为true时返回true,否则返回false
+        // || 逻辑或,当两边值都为false时返回false,否则返回true
+        // ! 逻辑非
+
+
+        // 布尔值 转成数字 true ->1  false->0
+        var str = "some string";
+        // 字符串 转成布尔值 非空("")的字符串即为真
+        // 数值  转成布尔 非0的数字即为真
+
+        // 非空的字符串，非0的数字都为true
+
+        console.log(!str); // false
+        console.log(!!str); // true
+
+        console.log(!6);//false
+        console.log(!0);//true
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

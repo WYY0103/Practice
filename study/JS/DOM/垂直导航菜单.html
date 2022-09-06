@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        #con h2{
+            background: #000;
+            width: 100px;
+            height: 50px;
+            color: aliceblue;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        #con ul{
+            list-style: none;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="con">
+        <div>
+            <h2>标题1</h2>
+            <ul >
+                <li>1111</li>
+                <li>1111</li>
+                <li>1111</li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>标题2</h2>
+            <ul>
+                <li>2222</li>
+                <li>2222</li>
+                <li>2222</li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        var con = document.getElementById('con');
+        var list = con.getElementsByTagName('h2');
+
+       
+        // for(var i = 0; i < list.length ; i++){
+        //     list[i].onclick = function(){
+        //         var ul_list = next(this);
+        //         if(ul_list.style.display == "block"){
+        //             ul_list.style.display = "none";
+        //         }
+        //         else{
+        //             ul_list.style.display = "block";
+        //         }
+
+
+
+        //     }
+        // }
+
+
+        // 两种状态切换  布尔值
+        // for(var i = 0; i < list.length ; i++){
+
+        //     list[i].flag = true;  //true 显示
+
+        //     list[i].onclick = function(){
+
+        //         var ul_list = next(this);
+
+        //         if(this.flag){
+        //             ul_list.style.display = "block";
+        //         }
+        //         else{
+        //             ul_list.style.display = "none";
+
+        //         }
+
+        //         this.flag = !this.flag;
+
+
+        //     }
+        // }
+
+        
+
+
+        
+
+        function next(elem){
+
+            do{
+                elem = elem.nextSibling;
+            }while(elem && elem.nodeType !=1)
+
+
+            return elem;
+        }
+
+
+
+
+    </script>
+    
+</body>
+</html>

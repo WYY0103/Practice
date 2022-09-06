@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app{
+            width: 500px;
+        }
+        .close{
+            float: right;
+        }
+        .active{
+            background: #f00;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <h2>todolist</h2>
+        <hr>
+        <div>
+            名称:<input type="text" v-model="name">
+            价格:<input type="text" v-model="price">
+            <button @click="add()">提交</button>
+        </div>
+
+        <div>
+            <input type="text" v-model="searchVal">
+            <button @click="search()">搜索</button>
+        </div>
+
+        <ul>
+
+            <li v-for="(obj,index) in list" 
+                @click="change(obj)"
+                :class="{active:obj.isChecked}"
+                v-show="obj.isShow"
+            >
+
+                <input type="checkbox" v-model="obj.isChecked">
+                <span> {{obj.name}} </span>
+                <span> {{obj.price}} </span>
+                <span class="close" @click="del(index)">[X]</span>
+            </li>
+        </ul>
+
+        <div>
+            <button @click="delChecked()">删除选择</button>
+            <span>总价{{total()}}</span>
+        </div>
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        new Vue({
+            el:"#app",
+            data:{
+                list:[
+                    {
+                        name:'苹果',
+                        price: 5,
+                        isChecked:false,//是否勾选
+                        isShow:true
+                    },
+                    {
+                        name:'香蕉',
+                        price: 6,
+                        isChecked:false,
+                        isShow:true
+                    }
+
+                ],
+                name:'',
+                price:'',
+                searchVal: ''
+
+
+            },
+            methods:{
+                add(){
+                    // 增加一个li
+                    // 获取添加的商品名称和价格
+                    this.list.push({
+                        name:this.name,
+                        price:this.price,
+                        isChecked:false,
+                        isShow:true
+                    });
+                    // 加完一个list需要将框内内容删除
+                    this.name='';
+                    this.price='';
+
+
+                },
+                change(obj){
+                    obj.isChecked = !obj.isChecked;
+                },
+                del(index){
+                    // splice(index,howmany)  从数组中删除|替换|添加
+                    this.list.splice(index,1);
+                },
+                // 批量删除   删除被选中的  通过ischecked来知道是否被选中
+                delChecked(){
+                    // filter 过滤出符合条件的
+                    this.list = this.list.filter(function(obj){
+                        return !obj.isChecked;
+                    })
+                },
+                total(){
+                    let sum = 0;
+                    this.list.forEach(function(obj){
+
+                        if(obj.isChecked == true) {
+                            sum=sum + obj.price;
+                        }                       
+                    })
+                    return sum;
+                },
+                search(){
+                    this.list.forEach((obj)=>{
+                        console.log(this.searchVal);
+                        if(obj.name.includes(this.searchVal)){
+                            obj.isShow =true;
+                        }
+                        else{
+                            obj.isShow =false;
+                        }
+                    })
+                }
+               
+                
+            }
+        })
+
+
+
+    </script>
+    
+</body>
+</html>

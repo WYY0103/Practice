@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="font/iconfont.css">
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #con{
+            width: 750px;
+            height: 291px;
+            margin: 300px auto;
+            position: relative;
+        }
+
+        .dis{
+            display: none;
+        }
+        .app{
+            display: block;
+        }
+        #btn-list{
+            overflow: hidden;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .btn-no{
+            width: 20px;
+            height: 20px;
+            list-style: none;
+            float: left;
+            /* border: 1px solid #000; */
+            border-radius: 10px;
+            text-align: center;
+            line-height: 20px;
+            background: #000;
+            color: #fff;
+            margin-right: 5px;
+        }
+
+        #btn-list .btn-show{
+            background: #c4000c;
+        }
+
+        #prev,#next{
+            width: 40px;
+            height: 50px;
+            background: #000000;
+            opacity: 0.3;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            position: absolute;            
+            /* top: 125px; */
+            top: 50%;
+            margin-top: -25px;
+            display: none;
+        }
+
+        #prev{
+            left: 0;
+        }
+        #next{
+            right: 0;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+    <div id="con">
+
+        <div id="img-list">
+            <img class="dis app" src="images/img01.jpg" alt="">
+            <img class="dis" src="images/img02.jpg" alt="">
+            <img class="dis" src="images/img03.jpg" alt="">
+            <img class="dis" src="images/img04.jpg" alt="">
+            <img class="dis" src="images/img05.jpg" alt="">
+            <img class="dis" src="images/img06.jpg" alt="">
+
+        </div>
+
+        <ul id="btn-list">
+            <li class="btn-no btn-show">1</li>
+            <li class="btn-no">2</li>
+            <li class="btn-no">3</li>
+            <li class="btn-no">4</li>
+            <li class="btn-no">5</li>
+            <li class="btn-no">6</li>
+
+        </ul>
+
+        <div id="prev">
+            <span class="iconfont icon-xiaoyuhao1-copy"></span>
+        </div>
+
+        <div id="next">
+            <span class="iconfont icon-dayuhao-copy"></span>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        var btnBox = document.getElementById('btn-list');
+        var btn = btnBox.getElementsByTagName('li');
+
+        var imgBox = document.getElementById('img-list');
+        var img = imgBox.getElementsByTagName('img');
+
+        var con = document.getElementById('con');
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+
+        var ind = 0;
+
+
+        for(var i = 0 ;i < btn.length;i++){
+
+            btn[i].index = i;
+
+            btn[i].onclick = function(){
+                change(this.index);
+                ind = this.index;
+            }
+
+        }
+
+        // 鼠标滑出
+        con.onmouseout = function(){
+            prev.style.display = "none";
+            next.style.display = "none";
+            // 重启定时器
+            timer = setInterval(function(){
+                next.onclick();
+            },2000);
+            
+
+        }
+        // 鼠标滑入
+        con.onmouseover = function(){
+            prev.style.display = "block";
+            next.style.display = "block";
+            // 清楚定时器
+            clearInterval(timer);
+
+        }
+
+        next.onclick = function(){
+            ind++;
+            if(ind >= btn.length){
+                ind = 0;
+            }
+            change(ind);
+        }
+
+        prev.onclick = function(){
+            ind--;
+
+            if(ind < 0){
+                ind = btn.length-1;
+            }
+
+            change(ind);
+        }
+
+        function change(Index){
+
+            for(var j =0 ;j < btn.length; j++){
+                    btn[j].className = "btn-no";
+                    img[j].className = "dis";
+            }
+
+            btn[Index].className = "btn-no btn-show";
+            img[Index].className = "dis app";
+
+        }
+
+        var timer = setInterval(function(){
+            next.onclick();
+        },2000);
+
+
+    </script>
+
+
+
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="font-2/iconfont.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #con {
+            width: 520px;
+            height: 280px;
+            margin: 300px auto;
+            overflow: hidden;
+            position: relative;
+
+        }
+
+        #img-list img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 2s linear;
+        }
+
+        #img-list .active{
+            opacity: 1;
+        }
+
+
+
+
+        #btn-list {
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+        }
+
+        #btn-list li {
+            list-style: none;
+            float: left;
+            width: 30px;
+            height: 30px;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 20px;
+            margin-right: 5px;
+        }
+
+        #btn-list .app {
+            background: #c4000c;
+        }
+
+        
+       #prev, #next {
+            width: 50px;
+            height: 50px;
+            background: #000;
+            opacity: 0.3;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            display: none;
+        }
+
+        #prev {
+            left: 0;
+        }
+
+        #next {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="con">
+        <div id="img-list">
+            <img class="active" src="images/01.jpg" alt="">
+            <img src="images/02.jpg" alt="">
+            <img src="images/03.jpg" alt="">
+            <img src="images/04.jpg" alt="">
+            <img src="images/05.jpg" alt="">
+
+
+        </div>
+
+        <ul id="btn-list">
+            <li class="app">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+
+        </ul>
+
+        <div id="prev">
+            <span class="iconfont icon-xiaoyuhao1"></span>
+        </div>
+
+        <div id="next">
+            <span class="iconfont icon-dayuhao1"></span>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        var btnBox = document.getElementById('btn-list');
+        var btn = btnBox.getElementsByTagName('li');
+
+        var imgBox = document.getElementById('img-list');
+        var img = imgBox.getElementsByTagName('img');
+
+        var con = document.getElementById('con');
+
+        var ind = 0;
+
+        for (var i = 0; i < btn.length; i++) {
+
+            btn[i].index = i;
+
+            btn[i].onclick = function () {
+                change(this.index);
+                ind = this.index;
+            }
+        }
+
+        next.onclick = function () {
+            ind++;
+            if (ind >= btn.length) {
+                ind = 0;
+            }
+            change(ind);
+
+
+        }
+
+        prev.onclick = function () {
+            ind--;
+            if (ind < 0) {
+                ind = btn.length - 1;
+            }
+            change(ind);
+
+        }
+
+        function change(Index) {
+
+            for (var j = 0; j < btn.length; j++) {
+                btn[j].className = "";
+            }
+            btn[Index].className = "app";
+            img[Index].className= "active";
+        }
+
+        
+
+        con.onmouseout = function () {
+            prev.style.display = "none";
+            next.style.display = "none";
+            
+            timer = setInterval(function () {
+                next.onclick();
+            }, 2000)
+
+        }
+
+        con.onmouseover = function () {
+            prev.style.display = "block";
+            next.style.display = "block";
+            clearInterval(timer);
+        }
+        
+        var timer = setInterval(function () {
+            next.onclick();
+        }, 2000)
+
+
+
+    </script>
+
+</body>
+
+</html>

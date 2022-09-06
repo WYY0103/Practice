@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //   new Promise(function(resolve,reject){
+
+        //     setTimeout(function(){
+        //         resolve("hello");
+
+        //     },1000)
+
+        //     // 成功then
+        //   }).then((res)=>{
+        //     console.log(res);
+        //     // 失败catch
+        //   }).catch(()=>{
+
+        //   })
+
+        let po1 = new Promise(function (resolve) {
+            setTimeout(function () {
+                console.log(100);
+                resolve();
+            }, 1000)
+        })
+
+        let po2 = new Promise(function (resolve) {
+            setTimeout(function () {
+                console.log(200);
+                resolve();
+            }, 2000)
+        })
+
+        let po3 = new Promise(function (resolve,reject) {
+            setTimeout(function () {
+                console.log(300);
+                reject();
+            }, 3000)
+        })
+
+
+      
+
+
+        Promise.race([po1, po2, po3]).then(() => {
+            console.log('成功');
+        }).catch(() => {
+            console.log('失败');
+        })
+
+
+
+
+    </script>
+
+</body>
+
+</html>

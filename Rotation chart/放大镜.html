@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+      
+
+        #con{
+            width: 800px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #drag{
+            width: 200px;
+            height: 200px;
+            background: rgba(0,0,0,0.3);
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        #small-box{
+            width: 400px;
+            height: 400px;
+            position: relative;
+        }
+
+        #big-box{          
+            width: 400px;
+            height: 400px;
+            /* background: red; */
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: none;
+
+        }
+
+        #big-img{
+            position: absolute;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <div id="small-box">
+            <img src="images/1.jpg" alt="">
+            <div id="drag"></div>
+
+        </div>
+
+        <div id="big-box">
+            <img id="big-img" src="images/2.jpg" alt="">
+
+        </div>
+    </div>
+
+    <script>
+
+        var smallBox = document.getElementById('small-box');
+
+        var drag = document.getElementById('drag');
+
+        var bigBox = document.getElementById('big-box');
+
+        var big_img = document.getElementById('big-img');
+
+        smallBox.onmouseover = function(){
+            // console.log("111")
+            drag.style.display = "block";
+            bigBox.style.display = "block";
+        }
+
+        smallBox.onmouseout = function(){
+            // console.log("111")
+            drag.style.display = "none";
+            bigBox.style.display = "none";
+            
+        }
+
+        smallBox.onmousemove = function(e){
+
+            var ileft = e.clientX - drag.offsetWidth / 2;
+            var itop = e.clientY - drag.offsetHeight / 2;
+
+            var ileftMax = smallBox.offsetWidth - drag.offsetWidth;
+            var itopMax = smallBox.offsetHeight - drag.offsetHeight;
+
+            if(ileft < 0){
+                ileft = 0;
+            }
+            if(itop < 0){
+                itop = 0;
+            }
+
+            if(ileft > ileftMax){
+                ileft = ileftMax;
+            }
+            if(itop > itopMax){
+                itop = itopMax;
+            }
+            drag.style.left = ileft + "px";
+            drag.style.top = itop + "px";
+
+            var left_radio = ileft / ileftMax;
+            var top_radio = itop / itopMax;
+
+            var bigX = big_img.offsetWidth - bigBox.offsetWidth;
+
+
+            big_img.style.left = -bigX * left_radio + "px";
+
+
+        }
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       #div1{
+           height: 200px;
+           width: 200px;
+           background: #ff0000;
+       }
+
+       @media screen and (max-width:800px){
+           #div1{
+               animation: run 1s linear 1;
+           }
+           
+       }
+       @keyframes run{
+           100%{
+               transform: rotate(30deg);
+           }
+       }
+
+       /* 
+            媒体查询  响应式   media   可利用这个来切换到不同设备  当页面缩小到iPad大小显示iPad页面，当页面缩小到手机大小显示手机页面
+            screen  彩色电脑屏幕 固定写法
+            max-width  代表屏幕宽度最大为xx  当小于xx时，执行media中样式
+            max-height       
+       */
+    </style>
+
+    
+</head>
+<body>
+
+    <div id="div1">
+
+    </div>
+    
+</body>
+</html>

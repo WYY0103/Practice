@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="font/iconfont.css">
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #con{
+            width: 750px;
+            height: 291px;
+            margin: 300px auto;
+            position: relative;
+            overflow: hidden;
+            
+        }
+
+        #img-list{
+            width: 4700px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: left 1s linear;
+
+            
+        }
+
+        #img-list img{
+            float: left;
+        }
+
+       
+
+        #btn-list li{
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            float: left;
+            border: 1px solid #000;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 5px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        #btn-list{
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+        }
+
+        #btn-list .select{
+            background: #c4000c;
+            color: #fff;
+        }
+
+        #prev,#next{
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            line-height: 50px;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            display: none;
+           
+        }
+
+        #next{
+            right: 0;
+        }
+
+        #prev{
+            left: 0;
+        }
+        .iconfont{
+             font-size: 30px;
+             /* color: #fff; */
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <div id="con">
+
+        <div id="img-list">
+            <img src="images/img01.jpg" alt="">
+            <img src="images/img02.jpg" alt="">
+            <img src="images/img03.jpg" alt="">
+            <img src="images/img04.jpg" alt="">
+            <img src="images/img05.jpg" alt="">
+            <img src="images/img06.jpg" alt="">
+
+
+        </div>
+
+        <ul id="btn-list">
+            <li class="select">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+
+        </ul>
+
+        <div id="prev">
+            <span class="iconfont icon-xiaoyuhao2"></span>
+
+        </div>
+
+        <div id="next">
+            <span class="iconfont icon-dayuhao"></span>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        var btnBox = document.getElementById('btn-list');
+        var btn = btnBox.getElementsByTagName('li');
+
+        var imgBox = document.getElementById('img-list');
+        var img = imgBox.getElementsByTagName('img');
+
+        var con = document.getElementById('con');
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+
+        var ind = 0;
+        
+
+        for (var i = 0;i < btn.length; i++){
+
+            btn[i].index = i;
+
+            btn[i].onclick = function(){
+                /*
+                for (var j = 0;j < btn.length; j++){
+                    btn[j].className = "";
+                    img[j].className = "";
+                }
+                this.className = "select";
+                img[this.index].className = "app";
+                */
+                change(this.index);
+
+                ind = this.index;
+
+            }
+        }
+
+        con.onmouseover = function(){
+            prev.style.display = "block";
+            next.style.display = "block";
+            clearInterval(timer);
+
+        }
+
+        con.onmouseout = function(){
+            prev.style.display = "none";
+            next.style.display = "none";
+            timer = setInterval(function(){
+                next.onclick();
+            },2000)
+
+        }
+
+        function change(Ind){
+
+            for (var j = 0;j < btn.length; j++){
+                    btn[j].className = "";
+                }
+                btn[Ind].className = "select";
+                imgBox.style.left = -Ind * 750 + "px";
+
+        }
+
+        next.onclick = function(){
+            ind++;
+            if(ind >= btn.length){
+                ind = 0;
+            }
+            change(ind);
+        }
+
+        prev.onclick = function(){
+            ind--;
+            if (ind < 0){
+                ind = btn.length - 1;
+            }
+            change(ind);
+        }
+
+        var timer = setInterval(function(){
+            next.onclick();
+        },2000)
+        
+
+
+    </script>
+    
+</body>
+</html>

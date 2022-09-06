@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        scrollTo(x,y)
+        scrollBy(x,y)
+
+        alert()
+        confirm()
+        prompt()
+
+        setTimeout()—— 暂停指定的毫秒数后执行指定的代码
+        clearTimeout()——取消指定的setTimeout函数将要执行的代码
+        setInterval()——间隔指定的毫秒数不停地执行指定的代码
+        clearInterval()——取消指定的setInterval函数将要执行的代码
+
+     -->
+
+
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+    <h2>哈哈哈哈哈哈呵呵呵呵呵呵</h2>
+
+
+    <button id="btn">click</button>
+    <button id="stop">停止</button>
+    <script>
+        var btn=document.getElementById('btn');
+        btn.onclick=function(){
+            // scrollTo(0,0);
+            // scrollBy(0,-100);
+            // 用定时器将其缓慢上升
+            var timer=setInterval(function(){
+                // 判断滚动条滚到0   获取滚动条滚动的高度
+                var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+                if(scrollTop > 0){
+                    scrollBy(0,-100);
+                }
+                else{
+                    clearInterval(timer);
+                }
+                
+            },100)
+            
+
+        }
+
+        /* 定时器    回调函数   时间间隔   每隔一个时间间隔就执行回调函数  会循环执行
+        var timer = setInterval(function(){
+            console.log(Math.random());
+        },1000);
+
+        var btn1 = document.getElementById('stop');
+        btn1.onclick=function(){
+            // 停止定时器
+            clearInterval(timer);
+        }*/
+
+
+        /* 定时器  但是每隔一段时间只执行一次  不会循环执行
+        var timer1 = setTimeout(function () {
+            console.log(Math.random())
+        }, 1000)
+        //停止定时器
+        clearTimeout(timer1);
+     */
+
+
+    </script>
+
+
+    
+    
+</body>
+</html>

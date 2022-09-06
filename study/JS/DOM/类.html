@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+
+
+
+        // 类  具有相同属性和方法的集合
+        /*
+            定义类(构造函数)   function 类名(){}  类名大写
+            属性  this.属性   
+            方法  this.方法名 = function(){}
+        */
+        function Person(name){
+            // 定义属性
+            this.name = name; 
+        }
+
+        /*
+            定义方法
+            原型对象  所有类(构造函数)  都有一个prototype属性，
+            这个prototype指向原型对象
+            原型对象：定义在原型对象下的属性和方法能被所有实例化对象(例如下面的p1 p2)共享
+        */
+
+        /*
+            一般类添加方法这样添加  写在构造函数的原型对象下
+            原因:在创建一个实例化对象时，就会生成相应的方法，但如果创建的对象过多，就会创建很多相同的方法，
+                 所以用原型对象来写，这样无论new多少对象，都只有这一个方法
+            因为方法都是一样，所以可以提出来用原型对象共享，但属性这样写就会写死
+        */
+        // Person.prototype.eat = function(){
+        //     console.log(this.name + "eat")
+        // }
+
+        // 实例化对象p1
+        // var p1 = new Person("zs");//创建一个类元素
+        
+
+        function Dog(name){
+            this.name = name;
+
+        }
+
+        var mianbao = new Dog("damianbao");
+        console.log(mianbao.name);
+        Dog.prototype.init = function(){
+            console.log("I am a "+this.name);
+        }
+        mianbao.init();
+
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

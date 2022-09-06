@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+
+    </ul>
+
+    <!-- 
+        扩展运算符 ... 把数组或者类数组展开用逗号隔开的值
+
+        作用  
+            1.复制数组
+            2.合并数组
+            3.类数组转成数组
+
+     -->
+
+
+     <script>
+
+         var arr = [1,2,3];
+        //  复制数组
+         var arr1 = [...arr];
+         arr1.push(10);
+         console.log(arr,arr1);
+
+        //  合并数组
+        var a =[1,2];
+        var b =[3,4];
+        var c =[...a,...b];
+        console.log(c);
+
+
+        // 类数组，只有length属性，可以通过for循环循环数组
+        var aLi = document.getElementsByTagName('li');
+        var arr2 =[...aLi];
+        
+        // var arr2 = aLi;
+        // arr2.push(2);
+        console.log(arr2);
+     </script>
+    
+</body>
+</html>

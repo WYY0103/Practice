@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">
+
+    </div>
+
+    <script>
+
+      
+        
+        // var div1 = document.getElementById('div1');
+        // div1.onclick = function(){
+        //     window.setTimeout(function(){
+        //         console.log(this);
+        //     },2000)
+        // }
+
+         /*
+            修改this指向 
+            1、 call、apply、bind都是修改this指向
+                call、apply会调用方法
+                bind不会调用方法 ，返回一个修改了this指向的方法，需要手动调用  可用在定时器上，因为定时器不需要调用方法，他是每隔一段时间执行功能
+            2 参数不一样
+                call(修改的this,参数1,参数2);
+                apply(修改的this,[参数1,参数2]);
+                bind(修改的this,参数1,参数2);
+        */
+
+
+
+        var obj = {
+            name : "zs",
+            age : 18,
+            eat : function(){
+                console.log(this);
+            }
+        }
+
+        var obj2 = {
+            name : "lisi",
+            age : 20
+
+        }
+
+        function fn(x,y){
+            console.log(x,y,this);
+        }
+
+        // obj.eat();
+        // call():两个参数    1 让this指向谁就写谁  2 传的参数
+        //这样就将obj的this指向修改成了obj2
+        // obj.eat.call(obj2);
+        // 带参数
+        // fn.call(obj,1,2)
+
+        // apply():两个参数   1 让this指向谁就写谁  2  将参数放进数组里
+        // fn.apply(obj,[1,2])
+
+        // bind():不会调用函数，返回一个修改了this指向后的方法，需要手动调用
+        fn.bind(obj,1,2)();
+
+
+
+
+
+        
+
+        
+
+    </script>
+    
+</body>
+</html>

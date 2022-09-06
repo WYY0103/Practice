@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <!-- 
+
+        输入url后浏览器的执行过程          
+          * 域名解析(DNS解析)
+            将消息从你的PC上传到服务器上，需要用到IP协议、ARP协议和0SPF协议
+          * 发起TCP的3次握手
+            建立TCP连接后发起http请求
+            服务器响应htp请求
+            浏览器解析htm代码,并请求html代码中的资源(如js、css、图片等）
+          * 断开TCP连接
+          * 浏览器对页面进行渲染呈现给用户
+        
+        DNS解析
+            浏览器搜索自己的DNS缓存
+            若没有，则搜索操作系统中的DNS缓存
+            若没有，则搜索操作系统的hosts文件
+            若没有，则操作系统将域名发送至本地域名服务器- -（递归查询方式），本地域名服务器 查询自己的DNS缓存，查找成功则返回结果，否则，（以下是迭代查询方式）
+                .1 本地域名服务器 向根域名服务器发起请求，此处，根域名服务器返回com域的顶级域名服务器的地址
+                .2 本地域名服务器 向com域的顶级域名服务器发起请求，返回baidu.com权限域名服务器地址
+                .3 本地域名服务器 向baidu.com权限域名服务器发起请求，得到www.baidu.com的IP地址
+            本地域名服务器 将得到的IP地址返回给操作系统，同时自己也将IP地址缓存起来
+            操作系统将 IP 地址返回给浏览器，同时自己也将IP地址缓存起来
+            至此，浏览器已经得到了域名对应的IP地址
+        
+        三次握手
+            发送端首先发送一个带有SYN标志地数据包给接收方。
+            接收方接收后，回传一个带有SYN/ACK标志的数据包传递确认信息，表示我收到了。
+            最后，发送方再回传一个带有ACK标志的数据包，代表我知道了，表示’握手‘结束。
+            
+        为什么三次握手
+            为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误
+            已失效的连接请求报文段”的产生在这样一种情况下：
+                client发出的第一个连接请求报文段并没有丢失，而是在某个网络结点长时间的滞留了，
+                以致延误到连接释放以后的某个时间才到达server。本来这是一个早已失效的报文段。
+                但server收到此失效的连接请求报文段后，就误认为是client再次发出的一个新的连接请求。
+                于是就向client发出确认报文段，同意建立连接。假设不采用“三次握手”，那么只要server发出确认，
+                新的连接就建立了。由于现在client并没有发出建立连接的请求，因此不会理睬server的确认，也不会向server发送数据。
+                但server却以为新的运输连接已经建立，并一直等待client发来数据。这样，server的很多资源就白白浪费掉了。
+        四次挥手
+            Client发送一个FIN，用来关闭Client到Server的数据传送，Client进入FIN_WAIT_1状态。
+            Server收到FIN后，发送一个ACK给Client，确认序号为收到序号+1，Server进入CLOSE_WAIT状态。
+            Server发送一个FIN，用来关闭Server到Client的数据传送，Server进入LAST_ACK状态。
+            Client收到FIN后，Client进入TIME_WAIT状态，接着发送一个ACK给Server，确认序号为收到序号+1，Server进入CLOSED状态，完成四次挥手
+
+        浏览器解析页面过程
+            html解析文件，构建DOM树
+            解析css文件，构建CSSOM树
+            将DOM树和CSSOM树结合，构建渲染树
+            页面布局
+            绘制
+
+        重绘 重排（回流）
+            重绘  绘制页面  修改页面效果的样式  render tree中的一些元素需要更新属性 这些属性不会影响布局 color
+            重排  排列页面  改变页面的排列布局  margin  position  width
+
+            回流必定会发生重绘，重绘不一定会引发回流
+
+        页面加载会不会出现阻塞（什么文件会导致阻塞）
+            js文件：js的加载、解析与执行会阻塞DOM的构建，也就是说，
+                    在构建DOM时，刚开始加载html没问题，突然碰到技术文件，那么它会暂停构建DOM，
+                    开始加载js文件，等js文件加载完成后，运行js文件，浏览器再从中断的地方恢复DOM构建。
+            可用script中的两个属性来调节：defer async
+            defer:不会阻塞页面渲染，js文件加载与页面渲染并行，进行页面渲染过程中发现有js文件，浏览器会新开一个线程加载js文件，加载后不会立即执行
+                  等所有dom元素都渲染完成后再执行js文件
+            async:js文件加载与页面渲染并行，当js文件加载完后会立即执行，此时停止dom构建，等js文件执行后再进行加载
+
+            css文件：css加载不会阻塞dom解析，因为dom解析与css解析是并行进行的
+                    但是渲染树会依赖dom树和CSSOM树，所以必须等到CSSOM Tree构建完成，也就是CSS资源加载完成后，才能开始渲染。
+                    CSS加载是会阻塞Dom的渲染的
+                    CSS加载是会阻塞后面js语句的执行
+
+
+
+
+     -->
+
+    <a href="https://blog.csdn.net/qq_21993785/article/details/81188253">输入url后浏览器的执行过程 DNS解析</a>
+    <a href="https://www.jianshu.com/p/d3725391af59"> 三次握手四次挥手</a>
+    <a href="https://www.zhihu.com/question/24853633">为什么三次握手</a>
+    <a href="https://zhuanlan.zhihu.com/p/53913989">浏览器解析页面过程</a>
+    <a href="https://www.jb51.net/css/741168.html">css阻塞页面渲染</a>
+
+
+
+</body>
+
+</html>

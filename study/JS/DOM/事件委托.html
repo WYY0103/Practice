@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+
+        事件委托
+            解决问题：
+                1、解决后生成元素的事件绑定问题(后生成的元素不会绑定最开始要进行的操作)
+                2、绑定事件的数量
+
+            原理：
+                给父元素绑定事件，当我点击子元素的时候，会触发父元素的点击事件(事件冒泡),这样就会给后生成的元素绑定上相应事件
+                父元素的点击事件中，根据事件源判断点击的元素是否为要绑定事件的元素
+
+
+
+     -->
+
+    <button id="btn">点击</button>
+
+    <ul id="oUl">
+        <li>111</li>
+        <li>222</li>
+        <li>3333</li>
+    </ul>
+
+    <script>
+
+        var oLi = document.getElementsByTagName('li');
+
+        var btn = document.getElementById('btn');
+
+        var oUl = document.getElementById('oUl');
+
+
+        // 后生成的li对于注释掉的点击事件不好用
+        // for (var i = 0;i < oLi.length; i++){
+        //     oLi[i].onclick = function(){
+        //         console.log(this.innerHTML);
+        //     }
+        // }
+
+        btn.onclick = function(){
+            var oli = document.createElement('li');
+            oli.innerHTML = Math.random();
+            oUl.appendChild(oli);
+
+        }
+
+        oUl.onclick = function(e){
+
+            if(e.target.tagName = 'LI'){
+                console.log(e.target.innerHTML);
+
+            }
+
+        }
+
+    </script>
+
+
+
+
+
+    
+</body>
+</html>

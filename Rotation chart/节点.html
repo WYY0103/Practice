@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #con h2{
+            width: 100px;
+            height: 30px;
+            background: #000;
+            color: aliceblue;
+        }
+
+        #con ul{
+            list-style: none;
+            display: none;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+   
+
+
+    <div id="con">
+        <div>
+            <h2>标题1</h2>
+            <ul>
+                <li>1111</li>
+                <li>2222</li>
+                <li>3333</li>
+
+            </ul>
+        </div>
+
+        <div>
+            <h2>标题2</h2>
+            <ul>
+                <li>4444</li>
+                <li>5555</li>
+                <li>6666</li>
+
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+
+        var oh2 = document.getElementsByTagName('h2');
+
+        var oul = document.getElementsByTagName('ul');
+
+        for(var i = 0 ;i < oh2.length; i++){
+
+            oh2[i].index = i;
+            oh2[i].onclick = function(){
+                if(oul[this.index].style.display == "none"){
+                    
+                    oul[this.index].style.display = "block";
+                }
+                else{
+                    oul[this.index].style.display = "none";
+                }
+            }
+        }
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="fn()">click</button>
+	    <button @click="dest()">destroy</button>
+	    <h2 id="myH2">
+	        {{count}}
+	    </h2>
+
+    </div>
+
+    <!-- 
+        生命周期   vue框架当中共有八大生命周期  会有不同的使用场景
+            创建
+                beforeCreate    创建前 获取不到  data  和  el元素的
+                created         能获取到页面上的data   但是获取不到页面上的el元素
+            挂载   
+                beforeMount     挂载前  这个节点开始  都能获取到了data和el
+                mounted
+            修改  
+                beforeUpdate
+                updated
+            销毁
+                beforeDestroy
+                destroyed
+            有先后区别
+
+            created()    获取数据  但是获取不到节点  可以完成所有的数据操作
+            mounted()    在这里面既可以操作数据  又可以操作节点
+    
+    
+    -->
+
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                count : 0,
+                timer: null,
+            },
+            methods:{
+                fn() {
+		            this.count++;
+		        },
+		        dest(){
+		            this.$destroy();
+		        }
+
+            },
+
+            beforeCreate(){
+                //  this.$data 获取data
+                // this.$el 获取dom元素
+                // 创建前 我是获取不到  data  和  el元素的
+                console.log('beforeCreate',this.$data, this.$el);
+
+            },
+
+            created() {
+				//我能获取到页面上的data   但是获取不到页面上的el元素
+		        console.log('created', this.$data, this.$el);
+		    },
+            beforeMount() {
+			    console.log('beforeMount', this.$data, this.$el);
+			},
+			mounted() {
+			    console.log('mounted', this.$data, this.$el);
+			},
+
+
+        })
+    </script>
+    
+</body>
+</html>

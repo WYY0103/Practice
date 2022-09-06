@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            border: 1px dashed #000;
+            margin: 100px auto;
+            /* 3D添加的效果 */
+            /* perspective: 800px; */
+        }
+
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            /* 变形  transform  2D  
+                旋转(rotate  单位deg  >0:向右旋转  <0:向左旋转)  
+                位移(translate  单位px  >0:向右移 <0:向左移)  
+                缩放scale(默认1  <1:缩小  >1:放大)
+            */
+            /* 2D  平面 */
+            /* transform: rotate(30deg); */
+            /* transform: translate(100px); */
+            /* transform: scale(0.5); */
+
+            /* 3D  立体空间  XYZ轴*/
+            /* 3D效果需要给父元素添加一个视角 */
+            /* transform: rotateX(30deg); */
+            /* transform: translateX(100px); */
+            /* transform: scaleX(0.5); */
+
+            /* 旋转圆点   默认是中间点 可修改*/
+            /* transform-origin: 0 0; */
+
+            
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">
+        <div id="div2">
+
+        </div>
+    </div>
+    
+</body>
+</html>

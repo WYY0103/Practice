@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #con{
+            width: 980px;
+            margin: 0 auto;
+        }
+        .title{
+            list-style: none;         
+        }
+        #head,#nav,#rear{
+            width: 980px;
+            height: 50px;
+            background: #ccc;
+            text-align: center;
+            line-height: 50px;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        #imag img{
+            width: 980px;
+        }
+        #imag01{
+            display: block;
+        }
+        #imag02,#imag03{
+            display: none;
+        }
+
+        #content{
+            display: flex;
+            margin-bottom: 40px;
+            margin-top: 20px;
+
+        }
+        .content-all{
+            height: 400px;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #content-left{
+            width: 65%;
+            background: chocolate;
+            margin-right: 10px;
+        }
+
+        #content-right{            
+            width: 35%;
+            background: palegreen;           
+        }
+
+        @media screen and (max-width:980px) {
+
+            #con{
+                width: 100%;
+            }
+
+            #head,#nav,#rear{
+                width: 100%;
+            }
+            
+            #imag img{
+                width: 100%;
+            }
+
+            #imag01,#imag03{
+                display: none;
+            }
+            #imag02{
+                display: block;
+                width: 100%;
+            }
+
+            
+        }
+
+        @media screen and (max-width:480px){
+            #con{
+                width: 100%;
+            }
+            #head,#nav,#rear{
+                width: 100%;
+            }
+            #imag01,#imag02{
+                display: none;
+            }
+            #imag03{
+                display: block;
+                width: 100%;
+            }
+
+            #content{
+                display: block;
+            }
+
+            #content-left{
+                width: 100%;
+            }
+            #content-right{
+                width: 100%;
+            }
+            
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <ul class="title">
+            <li id="head">页头</li>
+            <li id="nav">导航</li>
+        </ul>
+
+
+        <div id="imag">
+            <img id="imag01" src="image/1.jpg" alt="">
+            <img id="imag02" src="image/2.jpg" alt="">
+            <img id="imag03" src="image/3.jpg" alt="">
+
+
+        </div>
+
+        <div id="content">
+            <div class="content-all" id="content-left">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+            </div>
+            
+            <div class="content-all" id="content-right">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+            </div>
+        </div> 
+
+        <ul class="title">
+            <li id="rear">页尾</li>
+        </ul>
+
+    </div>
+    
+</body>
+</html>

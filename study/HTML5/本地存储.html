@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+         /* 
+            cookie 设置本地存储 大小 只有4K  默认有效期是当前会话窗口 
+            可以通过expires 设置过期时间 ;expires=
+        */
+
+
+        // cookie  设置本地存储  大小只有4k  默认有效期是当前会话窗口
+        document.cookie = "name = 'zs'";
+
+        var date = new Date();
+        date.setDate(date.getDate()+1);
+
+        document.cookie = "password = '123';expires="+date.toUTCString();
+
+
+
+        function setCookie(key,value,expires){
+            var date = new Date();
+            date.setDate(date.getDate()+expires);
+            document.cookie = key + '=' + value +';expires='+date.toDateString();
+        }
+
+        // console.log(setCookie('age','18',10));
+        /*
+            name='zs'; password='123'; age=18
+
+            先通过.split 按照分号把字符串拆分成数组 
+                ["name='zs'", " password='123'", ' age=18']   
+            再通过.split 按照等号把数组中的每一项拆分成数组
+                ['name', "'zs'"]
+                [' password', "'123'"]
+                [' age', '18']
+            用.trim()去掉前后的空格再判断输入的是否和key相等，输出值
+            
+
+        */ 
+        function getCookie(key){
+            var cookie1 = document.cookie;
+
+            var arr = cookie1.split(';');
+
+            for(var i = 0;i< arr.length;i++){
+                var tmp = arr[i].split('=');
+                if(tmp[0].trim() == key){
+                    return tmp[1];
+                }
+            }
+
+        }
+
+        
+        console.log(getCookie('age'));
+        // console.log(setCookie('age','18',10));
+
+        function delCookie(key) {
+            var date = new Date()
+            date.setDate(date.getDate()-1)
+            /* 设置过期时间为当天之前的任何一天 */
+            document.cookie = key + '=null;expires='+date.toUTCString()
+            /* 设置cookie内容为空 */
+        }
+
+        delCookie('age');
+
+
+        
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            perspective: 800px;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            border: 1px dashed #000;
+            margin: 100px auto;
+            /* perspective: 800px; */
+            transform: rotateY(45deg);
+            /* 子元素3D，父元素也3D
+                想要看子元素3D效果：在父元素中添加维持子元素在父元素中的3D变换(transform-style: preserve-3d;)
+                想要看父元素3D效果：在父元素外设置视角 
+            */
+            
+            transform-style: preserve-3d;
+           
+        }
+
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            transform: rotateY(30deg);
+                     
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">
+        <div id="div2">
+
+        </div>
+    </div>
+    
+</body>
+</html>

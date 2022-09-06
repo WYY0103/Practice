@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body{
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 800px;
+        }
+        #con{
+            width: 200px;
+            height: 200px;
+            /* background: #ff000f; */
+            position: relative;
+            transform-style: preserve-3d;
+            animation: run 2s linear infinite;
+
+        }
+        #con div{
+            width: 200px;
+            height: 200px;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid #000;
+            opacity: 0.6;
+            
+        }
+        @keyframes run{
+            100%{
+                transform: rotateY(180deg);
+                /* transform:rotateZ(180deg); */
+            }
+            
+        }
+        #div1{
+            background: url(image/a.jpg) no-repeat;  
+            /* 注意旋转后位移走的轴是相对于元素而言，而不是人 */
+            /* 注意  transform的几个属性都需要时要并列书写，不要分开写，以免发生覆盖 */
+            transform: rotateX(90deg) translateZ(100px);
+
+        }
+        #div2{
+            background: url(image/b.jpg) no-repeat;   
+            transform: rotateX(-90deg) translateZ(100px);     
+            /* display: none;   */
+        }
+        #div3{
+            background: url(image/c.jpg) no-repeat;   
+            transform: rotateY(90deg) translateZ(100px);
+
+            /* display: none;   */
+
+        }
+        #div4{
+            background: url(image/d.jpg) no-repeat;   
+            transform: rotateY(-90deg) translateZ(100px);
+            /* display: none;   */
+
+        }
+        #div5{
+            background: url(image/e.jpg) no-repeat;   
+            /* transform: rotateX(180deg) translateZ(-100px);    */
+            transform:translateZ(100px);
+            /* display: none;   */
+
+        }
+        #div6{
+            background: url(image/f.jpg) no-repeat;     
+            transform: rotateX(-360deg) translateZ(-100px); 
+            /* display: none;   */
+
+        }
+
+        
+    </style>
+</head>
+<body>
+
+
+    <div id="con">
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
+        <div id="div5"></div>
+        <div id="div6"></div>
+
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #con{
+            /* width: 1000px;
+            height: 1100px; */
+            background: grey;
+        }
+
+        #div1{
+            width: 200px;
+            height: 500px;
+            background: #ff0000;
+            float: left;
+        }
+        #div2{
+            background: #00ff00;
+            height: 500px;
+            margin-left: 210px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- 
+        左侧固定，右侧自适应
+            1浮动  左侧元素浮动，要修改右侧元素的margin-left避免充满父元素
+            2定位  左侧元素定位，要修改右侧元素的margin-left避免充满父元素
+            3 display:flex 右侧元素 flex:1，无需修改margin
+            4 修改margin-top和margin-left来移动元素
+     -->
+
+    <div id="con">
+        <div id="div1"></div>
+        <div id="div2"></div>
+    </div>
+    
+</body>
+</html>

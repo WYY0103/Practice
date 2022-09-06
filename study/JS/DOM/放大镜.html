@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #con{
+            width: 400px;
+            height: 400px;
+            position: relative;
+        }
+
+        #small-box{
+            width: 400px;
+            height: 400px;
+            position: relative;
+
+        }
+
+        #drag{
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+
+        }
+
+        #big-box{ 
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            right: -400px;
+            top: 0;
+            overflow: hidden;
+            display: none;
+            /* background: #f00; */          
+        }
+
+        #big-img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <div id="small-box">
+            <img src="../images/1.jpg" alt="">
+            <div id="drag"></div>
+
+        </div>
+
+        <div id="big-box">
+            <img id="big-img" src="../images/2.jpg" alt="">
+
+        </div>
+    </div>
+
+    <script>
+
+        // 1、鼠标滑入小盒子而不是图片，方块出来，大图出来
+       
+        var smallBox = document.getElementById('small-box');
+        // var mou = smallBox.getElementsByTagName('img');
+        // var img = mou[0];
+
+        var bigBox = document.getElementById('big-box');
+
+        var drag = document.getElementById('drag');
+
+        var bigImg = document.getElementById('big-img');
+
+
+
+        smallBox.onmouseover = function(){
+            drag.style.display = "block";
+            bigBox.style.display = "block";
+
+        }
+
+        smallBox.onmouseout = function(){
+            drag.style.display = "none";
+            bigBox.style.display = "none";
+
+        }
+
+        // 2、鼠标滑动滑块跟随鼠标移动
+
+        smallBox.onmousemove = function(e){
+
+            var ileft = e.clientX - drag.offsetWidth/2;
+            var itop = e.clientY - drag.offsetHeight/2;
+
+            var ileft_max = smallBox.offsetWidth - drag.offsetWidth;
+            var itop_max = smallBox.offsetHeight - drag.offsetHeight;
+            
+            if(ileft < 0){
+                ileft = 0;
+            }
+
+            if(itop < 0){
+                itop = 0;
+            }
+
+            if(ileft > ileft_max){
+                ileft = ileft_max;
+            }
+
+            if(itop > itop_max){
+                itop = itop_max;
+            }
+
+            drag.style.left = ileft  + "px";
+            drag.style.top = itop + "px";
+
+
+            // 3、滑块移动大图移动
+
+            // 求出滑块能走的最大距离，用滑块走的距离/最大距离=滑块走的百分比
+            // 用大图走的最大距离*百分比即为大图移动的距离
+            // 特别注意：修改元素的left等时要将其定位才可修改
+
+            // (1)滑块走的最大距离  ileft_max
+            // (2)大图走的最大距离 = 大图的宽度 - 大盒子的宽度
+            var bigXmax = bigImg.offsetWidth - bigBox.offsetWidth;
+            var bigYmax = bigImg.offsetHeight - bigBox.offsetHeight;
+            // (3)求滑块走的比例  用滑块应走的距离(ileft)/滑块走的最大距离 ileft_max
+            var drag_Xradio = ileft / ileft_max;
+            var drag_Yradio = itop / itop_max;
+
+            // (4)大图应走的距离 = 大图能走的最大距离 * 百分比
+            var bigX = bigXmax * drag_Xradio;
+            var bigY = bigYmax * drag_Yradio;
+
+
+            bigImg.style.left = -bigX + "px";
+            bigImg.style.top = -bigY + "px";
+
+
+            
+        }
+
+       
+        
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

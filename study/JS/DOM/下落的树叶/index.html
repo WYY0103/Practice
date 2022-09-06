@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+
+        var screenWidth = document.body.clientWidth  || document.documentElement.clientWidth;
+        var screenHeight = document.body.clientHeight || document.documentElement.clientHeight;
+
+
+        function Leaf(){
+            this.width = Math.random()*100 + 100;
+            // this.height = Math.random()*100 + 100;
+            this.pos_top = 0;
+            this.pos_left = Math.random()*(screenWidth - this.width);
+            this.img = "images/"+(Math.floor(Math.random() * 4 + 1))+".jpg";
+            
+
+        }
+
+
+        Leaf.prototype.Init = function(){
+            var img = document.createElement('img');
+            img.src =  this.img;
+            img.style.width = this.width +"px";
+            // img.style.height = this.height +"px";
+            img.style.left = this.pos_left +"px";
+            img.style.top = this.pos_top +"px";
+            this.index = img;
+            document.body.appendChild(img);
+
+        }
+
+
+        document.onclick = function(){
+
+            for(var j = 0;j < leafArr.length ;j++){
+                leafArr[j].Land();
+            }           
+        }
+
+        Leaf.prototype.Land = function(){
+
+            // console.log(this);
+
+            // 通过setTimeout来控制树叶不同时下落
+            setTimeout(function(){
+                    this.timer = setInterval(function(){
+                    if(this.index.offsetTop < screenHeight - this.index.offsetHeight){
+                        this.index.style.top = this.index.offsetTop + 10 + "px";
+                    }
+                    else{
+                        clearInterval(this.timer);
+
+                    }
+                }.bind(this),300)
+
+            }.bind(this),Math.random()*5000)
+           
+        }
+
+        var leafArr = new Array();
+        for (var i = 0;i < 40;i++){
+
+            var leaf = new Leaf();
+            leaf.Init();
+            // leafArr[i] = leaf;
+            leafArr.push(leaf);
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

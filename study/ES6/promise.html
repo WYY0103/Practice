@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <!-- 
+        promise  异步编程的解决方案，解决层层嵌套的回调地狱(层层嵌套的请求即回调地狱)
+                 将异步的操作以同步的流程表达出来，一旦建立无法取消
+        有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）且状态不可逆
+        状态改变只有两种情况：从pending到fulfilled和从pending到rejected
+        
+        
+        格式：两个参数   成功调用resolve,失败调用reject
+        new Promise((resolve, reject)=>{
+            发送请求的操作{
+                //成功 调用resolve 接着向下走走到then中第一个函数
+                resolve();
+                //失败 调用reject 接着向下走走到then中第二个函数
+                reject();
+            }
+
+        }).then(()={
+
+        },()=>{
+
+        })
+
+        Promise.all()方法：等待所有请求完成后执行操作
+            //成功走then,失败走catch  与上方then(()={},()={})中两个函数写法一样
+            Promise.all([请求1,请求2...]).then(()=>{
+
+            }).catch(()=>{
+
+            })
+        Promise.race()方法：等待最快的请求完成后执行操作
+
+
+
+
+
+     -->
+
+
+    <script>
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log(1);
+                //  resolve();
+                reject();
+
+            }, 1000)
+
+        }).then(() => {
+            setTimeout(() => {
+                console.log(2)
+
+            }, 500)
+        }, () => {
+            console.log('error');
+        })
+    </script>
+
+</body>
+
+</html>

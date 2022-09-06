@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+
+        /*
+
+            es6类
+                class 类名{
+                    constructor(属性){
+                        this.属性 = xx
+                    }
+                    方法名(){
+
+                    }
+                    //静态方法  调用：类名.方法名()
+                    static 方法名(){
+
+                    }
+                }
+
+            子类继承父类
+                class 子类 extends 父类{
+                    constructor(){
+                        super(属性)   //用来继承父类的属性和方法
+                        this.属性 = xx
+                    }
+                    方法名(){
+
+                    }
+                }
+
+        
+        
+        */
+        class Person{
+            constructor(name){
+                this.name = name;
+
+            }
+
+            eat(){
+                console.log(this.name+'chi');
+            }
+        }
+
+        var p1 = new Person('zs');
+        console.log(p1);
+        p1.eat();
+
+        class Coder extends Person{
+            constructor(name){
+                super(name);
+            }
+        }
+        var c1 =new Coder('lisi');
+        console.log(c1);
+        c1.eat();
+
+    </script>
+
+
+    
+</body>
+</html>

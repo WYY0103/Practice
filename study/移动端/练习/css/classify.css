@@ -1,0 +1,63 @@
+#search-box{
+    width: 6.9rem;
+    height: 0.6rem;
+    margin: 0.14rem auto;
+    position: relative;
+    text-align: center;
+    line-height: 0.6rem;
+    font-size: 14px;
+    color:rgba(0, 0, 0, 0.3);
+
+}
+
+.search-imag{
+    position: absolute;
+    left: 2.8rem;
+    top: 0;
+}
+.search{
+    width: 6.9rem;
+    height: 0.6rem;
+    border-radius: 0.3rem;
+    background: #F5F6F7;
+    text-align: center;
+    line-height: 0.6rem;
+    font-size: 14px;
+    color:rgba(0, 0, 0, 0.3);
+}
+
+#content{
+    display: flex;
+    justify-content: space-between;
+}
+
+#classify-box{
+    width: 1.72rem;
+    height: 10rem;
+    background: red;
+}
+
+#goods-list{
+    width: 5.57rem;
+    height: 10rem;
+    background: blue;
+}
+
+
+
+.hot-sale{
+    width: 1.72rem;
+    height: 0.45rem;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    display: flex;
+}
+
+.hot{
+    width: 0.06rem;
+    height: 0.3rem;
+    background: #56AB2F;
+    border-radius: 0.03rem;
+    margin-right: 0.48rem;
+    margin-top: 0.1rem;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 设计一个页面，在页面上显示信息“现在是XXXX年XX月XX日Xx点XX分XX秒（星期X)，欢迎您的到访！“。 -->
+
+    <script>
+
+        function date(){
+            var today=new Date();
+            var year=today.getFullYear();
+            var month=today.getMonth();
+            var date=today.getDate();
+            var hour=today.getHours();
+            var minutes=today.getMinutes();
+            var seconds=today.getSeconds();
+            var week=today.getDay();
+            return "现在是"+year+"年"+month+"月"+date+"日"+hour+"点"+minutes+"分"+seconds+"秒"+"("+"星期"+week+")";
+
+        }
+
+        confirm(date());
+
+
+
+    </script>
+    
+</body>
+</html>

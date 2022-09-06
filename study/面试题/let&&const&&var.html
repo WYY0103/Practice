@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+
+    </ul>
+
+
+    <script>
+
+        /* 
+            let var const区别；作用域，作用域链；const修改引用数据类型；变量提升            
+        */
+        // var a = 10;
+        // function f(){
+        //     var a = 6;
+        //     // 6
+        //     // console.log(a);
+        // }       
+        // f();
+        // // 10  全局下
+        // console.log(a);
+
+        // var b = 10;
+        // function f(){
+        //     // undefined
+        //     console.log(b);
+        //     var b = 6;
+        // }       
+        // f();
+        // // 10
+        // console.log(b);
+
+        var c = 10;
+        function f() {
+            // 10  作用域链
+            console.log(c);
+        }
+        f();
+        // 10
+        console.log(c);
+
+
+
+
+        var aLi = document.getElementsByTagName('li');
+        // es5 闭包解决块级作用域  用函数包裹函数来输出索引即i的值  内部函数引用外部函数的值，值不会释放
+        // for (var i = 0; i < aLi.length; i++) {
+        //     (function (index) {
+        //         aLi[i].onclick = function () {
+        //             console.log(index);
+        //         }
+        //     }(i))
+        // }
+
+
+        // es6实现块级作用域  将索引保留，不会释放
+        for (let i = 0; i < aLi.length; i++) {
+            aLi[i].onclick = function () {
+                console.log(i);
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <!-- 插值 在挂载元素中使用插值  纯文本展示-->
+        {{msg}}
+
+
+        <h2>{{name}} </h2>
+
+
+        <!-- h2的innerText :纯文本展示-->
+        <h2 v-text="name"></h2>
+        <!-- h2的innerHtml :解析是否有标签，当成html来展示 -->
+        <h2 v-html="name" ></h2>
+
+        <!-- v-show  显示隐藏  通过display:none来控制元素的显示和隐藏-->
+        <p v-show="!isLogin" >你好  李四</p>
+        <p v-show="isLogin" >请登录</p>
+        <!-- 
+            v-if  显示隐藏  不显示元素的话html中不会生成dom元素
+            符合要求显示，不符合要求显示v-else,还可用v-else-if
+        -->
+        <p v-if="a==b" >哈哈哈</p>
+        <p v-else-if="a<b" >12354</p>
+        <p v-else >呵呵呵</p>
+
+        <!-- 
+            v-if和v-show的区别
+                v-show  通过display:none来控制元素的显示和隐藏
+                v-if    不显示元素的话html中不会生成dom元素
+            一个元素频繁的显示隐藏，用v-show(dom元素会存在，仅通过display来控制，消耗性能小)
+         -->
+
+         <!-- v-for 循环  val代表取出数组的每一个值  in在哪  -->
+         <ul>
+            <li v-for="val in arr"> {{val}} </li>
+
+         </ul>
+
+         <ul>
+             <li v-for="obj in arr2"> {{obj.name}} </li>
+         </ul>
+
+
+
+
+    </div>
+
+
+
+    <!-- 引入vue -->
+    <!-- vue中操作data，当data发生变化，页面中的值发生变化 -->
+    <script src="vue.js"></script>
+
+
+    <script>
+
+        new Vue({
+            /* 
+                el：挂载元素
+                data：数据
+            
+            */
+            el:"#app",
+            data:{
+                msg:'hello',
+                name:'<span>lisi</span>',
+                isLogin:true,
+                a:1,
+                b:2,
+                arr:[1,2,3,4,5],
+                arr2:[
+                    {name:'zs'},
+                    {name:'lisi'},
+                    {name:'wanger'}
+                ]
+
+            }
+        })
+
+
+
+
+
+
+    </script>
+
+
+
+
+    
+</body>
+</html>

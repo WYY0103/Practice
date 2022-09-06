@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            /* 
+                过渡  transition  需要有条件触发，手动修改属性(例如鼠标点击、鼠标滑入)
+                    参数:属性  
+                         持续时间  
+                         运动方式  
+                         延迟时间
+            */
+            transition: width 2s linear 2s;
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <div id="div1">
+
+    </div>
+
+    <script>
+        var div1 = document.getElementById('div1');
+        div1.onclick = function(){
+            div1.style.width = "800px";
+        }
+    </script>
+    
+</body>
+</html>

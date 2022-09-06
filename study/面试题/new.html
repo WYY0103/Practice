@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+        // 模拟new的过程
+        function Foo(a){
+            this.a = a;
+        }
+        Foo.prototype.speak = function(){
+            console.log("hello ");
+        }
+
+
+        function myNew(parent,...arg){
+            var obj = {};
+            obj= parent.prototype;
+
+            var result = parent.call(obj,arg);
+
+            // 判断构造函数有无返回值，若没有返回新创建的对象
+            return typeof result == 'Object' ? result:obj;
+
+
+        }
+
+        // 手动实现new的时候需要将构造函数作为参数传进
+        var num = myNew(Foo,1);
+        console.log(num.a);
+        num.speak();
+
+
+
+    </script>
+
+</body>
+
+</html>

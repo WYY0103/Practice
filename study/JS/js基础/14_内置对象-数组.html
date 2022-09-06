@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+
+        <!-- 
+            数组方法
+            concat()	连接两个或多个数组，并返回已连接数组的副本(不会更改原有数组，而是返回一个新数组，其中包含已连接数组的值)
+                    array1.concat(array2, array3, ..., arrayX)
+                        array2, array3, ..., arrayX：要连接的数组
+
+            join()	    将数组的所有元素连接成一个字符串(元素将由指定的分隔符分隔,默认分隔符是逗号 (,); 方法不会改变原始数组)
+                    array.join(separator)
+                        separator:要使用的分隔符，可省略
+
+            pop()	删除数组的最后一个元素，并返回该元素
+                    array.pop()
+            shift()	删除数组的第一个元素，并返回该元素
+                    array.shift()
+            push()	将新元素添加到数组的末尾，并返回新的长度
+                    array.push()
+
+
+            reverse()	反转数组中元素的顺序(改变原始数组)
+                    array.reverse()
+
+            slice(start,end)	选择数组的一部分，并返回新数组,但不会改变原始数组
+                    两个参数，start开始，end结束，但不包括end
+
+
+            splice(index, howmany, item1, ....., itemX)	从数组中添加/删除/替换元素（方法会改变原始数组）
+                    index:从哪开始；
+                    howmany:删除个数；
+                    item1, ....., itemX:添加
+            
+
+            sort()	对数组的元素进行排序
+
+
+        
+         -->
+        <script>
+
+
+            // var arr1=["abc",2,3];
+            // var arr2=[4,5,6];
+            // console.log(arr1.concat(arr2));
+            // console.log(arr1);
+            // console.log(arr2);
+
+
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            // console.log(fruits.join(" and "));
+
+            // console.log(fruits.shift());
+            // console.log(fruits);
+            // console.log(fruits.reverse());
+            // console.log(fruits);
+            // console.log(fruits.slice(0,2));
+
+            // fruits.splice(0,2);
+            // fruits.splice(0,1,"water");
+            // console.log(fruits);
+
+            fruits.sort();
+            console.log(fruits);
+
+            
+
+
+
+
+
+        </script>
+        
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+        数组解构，索引对应
+        对象解构，属性对应
+        字符串解构，索引对应
+
+     -->
+
+     <script>
+
+         var [a,b,c] = [1,2,3];
+         console.log(a,b,c);
+
+
+         var obj ={
+             name : 'zs',
+             age : 18,
+             eat : function(){
+                 console.log('eat');
+             }
+         }
+
+         var {name:name1,age,eat} = obj;
+         console.log(name1,age,eat);
+
+         function fn({name,age}){
+             console.log(name,age);
+         }
+         fn({name:'lisi',age:50});
+     </script>
+    
+</body>
+</html>

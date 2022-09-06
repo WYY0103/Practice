@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        function foo(i,j){
+            console.log(this.a,i,j);
+        }
+
+        var obj = {
+            a:1,
+            foo:function(){
+                console.log(this.a);
+            }
+
+        }
+
+        
+
+        // 要在原型上定义foo才可以访问到
+        Function.prototype.mybind = function(targetObj,...arr){
+
+            // 获取修改的this指向的对象   因为bind有很多参数   无法确定个数   所以用arguments（类数组）来获取第一个即可
+            // var targetObj = arguments[0];
+            // var arr = [];
+            // var _this = this;
+
+            // for(var i = 1;i< arguments.length;i++){
+            //     arr.push(arguments[i]);
+            // }
+
+            var _this = this;
+            return function(){
+                _this.apply(targetObj,arr);
+            }
+
+        }
+
+        // 返回一个函数，要模拟bind的手动调用
+        foo.mybind(obj,1,2)();
+
+
+
+        
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

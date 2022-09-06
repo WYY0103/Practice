@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+		<div>
+		    是否需要额外付费设施
+		    <input type="checkbox" v-model="isChecked" @click="change()">
+		</div>
+
+		<ul v-show="isChecked">
+		    <li v-for="obj in list">
+		        {{obj.name}}
+                ({{obj.price}})
+                <!-- 复选框  我选择了那个  value就会获取到那个对象 -->
+                <!-- 将获取到的对象添加到orderlist中 -->
+		        <input type="checkbox" :value="obj" v-model="orderList">
+		    </li>           
+		</ul>
+
+		<p>订单费用信息</p>
+		<ul>
+		    <li v-for="obj in orderList">{{obj.name}}  ({{obj.price}})</li>
+		</ul>
+		<div>总价{{total}}</div>
+	</div>
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        new Vue({
+            el:'#app',
+            data:{
+                list:[
+                    {
+                        name:'沙发',
+                        price:100
+                    },
+                    {
+                        name:'水',
+                        price:50
+                    },
+                    {
+                        name:'电视',
+                        price:200
+                    },
+
+                ],
+                orderList:[
+                    {
+                        name:'群里花园豪华型',
+                        price:400
+
+                    }
+                ],
+                isChecked:false,
+
+            },
+            methods:{
+                change(){
+                    // 当我点击复选框时就显示下面的一个
+                    this.orderList.splice(1);
+                }
+              
+                
+                
+
+            },
+
+            // 计算属性  计算页面上的变量  例如单价  总价
+            // 作为属性  插值{{total}}   作为函数  插值{{total()}}
+            computed:{
+		      total(){
+		      	var sum = 0;
+		      	this.orderList.forEach(function(obj){
+		      		
+		      	    sum +=  obj.price;
+		      	})
+		      	return sum;
+		      }
+		    }
+        })
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .container{
+                width: 600px;
+                height: 500px;
+                background: #cccccc;
+                /* position: absolute;
+                left: 70px;
+                top: 80px; */
+            }
+            .div1{
+                width: 200px;
+                height: 100px;
+                background: #ff0000;
+                float: left;
+            }
+            .div2{
+                width: 200px;
+                height: 100px;
+                background: #00ff00;
+                float: left;   
+                position: relative;
+                left: 50px;
+            }
+            .div3{
+                width: 200px;
+                height: 100px;
+                background: #0000ff;
+                float: left;
+            }
+        </style>
+    </head>
+    <!-- 
+        定位 position:
+            相对定位 relative
+                1相对于自己的初始位置
+                2空间不释放
+            绝对定位 absolute
+                1相对于最近已定位的祖先元素，如果没有最近已定位的祖先元素，相对于body
+                2定位后空间释放
+            
+            固定定位 fixed
+                1相对于可视窗口
+                2定位后空间释放
+    
+            static 默认值不定位
+    
+     -->
+    <body>
+    
+        <div class="container">
+            <div class="div1">div1</div>
+            <div class="div2">div2</div>
+            <div class="div3">div3</div>
+        </div>
+    
+    </body>
+    
+    </html>
+    

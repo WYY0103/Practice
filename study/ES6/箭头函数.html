@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+        箭头函数(用()=> 来代替function) 和 普通函数区别  
+            1.箭头函数中this指向父作用域的this
+            2.箭头函数不能new
+            3.不能使用arguments，可以用rest
+
+
+
+
+     -->
+
+
+     <ul>
+         <li>11</li>
+         <li>22</li>
+         <li>33</li>
+
+     </ul>
+
+
+     <script>
+         var fn2 = ()=>{
+             console.log(11);
+
+         }
+        //  fn2();
+
+        // this指向
+         var aLi =document.getElementsByTagName('li');
+         for(var i =0;i < aLi.length;i++){
+             aLi[i].onclick = function(){
+                 setTimeout( ()=> {
+                    console.log(this);
+                 },1000)
+                 
+             }
+         }
+
+
+         var obj ={
+             name : 'zs',
+             age : 20,
+             eat : ()=>{
+                 setTimeout(()=>{
+                    console.log(this);
+                 },1000)
+                 
+             }
+         }
+
+         obj.eat();
+
+
+        //  类  不能作为构造函数 不能new
+         function Person(name){
+             this.name = name
+         }
+        // var Person = (name)=>{
+        //     this.name = name;
+        // }
+        // var p1 = new Person('zs');
+        // console.log(p1);
+
+        let fn = ()=>{
+            console.log(arguments);
+        }
+        fn(1,2,10);
+
+
+
+
+
+
+     </script>
+    
+</body>
+</html>

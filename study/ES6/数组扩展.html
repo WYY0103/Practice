@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+        forEach 循环取出元素    无返回值
+            forEach((ele,index)=>{})  两个参数：值 索引
+        filter 过滤出符合条件的，返回一个数组
+            filter((ele)=>{})  参数：值
+        map  根据函数的功能映射出一个新数组，返回一个新数组
+            map((ele)=>{})  参数：值
+        some  判断是否有元素是否符合func条件，返回布尔类型
+            some((ele)=>{})
+        every  判断每个元素是否符合func条件，返回布尔类型
+            every((ele)=>{})
+        find 返回第一个通过测试的元素
+            find((ele)=>{})
+        for of  循环
+            for ([index,value] of arr.entries()){}   value和index
+            for (index of arr.keys()){}    index
+            for (value of arr.values()){}    value
+        类数组转成数组
+            扩展运算符   arr=[...aLi]
+            Array.form()
+        
+
+
+
+
+     -->
+
+    <script>
+
+        var arr =[1,2,3,4];
+
+        // forEach 循环取出元素  两个参数  值 索引
+        arr.forEach((ele,index)=>{
+            console.log(ele,index);
+
+        })
+
+        // filter 过滤出符合条件的，返回数组
+        var arr2 = arr.filter((ele)=>{
+            return ele >2;
+
+        })
+        console.log(arr2);
+
+        // map映射出一个新数组
+        var arr3 = arr.map((ele)=>{
+            return ele*2;
+        })
+        console.log(arr3);
+
+        // some 判断是否有元素是否符合func条件
+        var arr4 = arr.some((ele)=>{
+            return ele == 8;
+        })
+        console.log(arr4);
+
+        // every  判断每个元素是否符合func条件
+        var arr5=arr.every((ele)=>{
+            return ele > 10;
+        }) 
+        console.log(arr5);
+
+        // find 返回第一个通过测试的元素
+        var result = arr.find((ele)=>{
+            return ele > 2;
+        })
+        console.log(result);
+
+        // for of循环
+        for((index)of arr.values()){
+            console.log(index);
+        }
+
+        
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

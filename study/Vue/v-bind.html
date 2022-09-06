@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .aa{
+            width: 200px;
+            height: 200px;
+            background: #f00;
+        }
+        .bb{
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <!-- v-bind 动态绑定属性 -->
+
+    <div id="app">
+        
+        <!-- id -->
+        <div v-bind:id="mid">111</div>
+        <!-- 简写 :-->
+        <!-- <div :id="mid">999999</div> -->
+        
+        
+
+        <button @click="change()">click</button>
+
+        <!-- class  style 属性值有多个，动态获取属性比较特殊-->
+
+        <!-- class 对象 {class名:true | false} -->
+        <div :class="{aa:isA,bb:isB}">22222</div>
+
+        <!-- class 数组 [class名,class名.....]  数组中可用三木运算符-->
+        <div :class="[class1,class2]">888888</div>
+        <div :class="[flag? 'aa':'',class2]">888888</div>
+
+
+        <!-- 动态绑定style -->
+        <div :style="{color:myRed}">2000000</div>
+        <div :style="[styleobj1,styleobj2]">1000000</div>
+
+
+
+        
+
+
+
+        
+
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        new Vue({
+            el:'#app',
+            data:{
+                mid:'div1',
+                isA:true,
+                isB:false,
+                class1:'aa',
+                class2:'bb',
+                flag:true,
+                myRed:'red',
+                styleobj1:{
+                    width:'200px',
+                    height:'200px'
+                },
+                styleobj2:{
+                    background:'green'
+                }
+
+            },
+            methods:{
+                change(){
+                    this.mid = 'div2';
+                }
+                
+            }
+        })
+
+
+
+    </script>
+    
+</body>
+</html>

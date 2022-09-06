@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+        let  声明变量
+
+        let 与 var 的区别
+            let不能重复声明,var可以重复声明
+            let无变量提升,var有变量提升
+            let暂时性死区 |临时失效区
+            let块级作用域{},无法访问块级作用域里的变量;var只有全局作用域和局部作用域
+    
+    -->
+
+    <script>
+        // 1.let不能重复声明，var可以，但let可以重新赋值
+        let a = 10;
+        let b = 20;
+        console.log(a,b);        
+        var c = 10;
+        var c = 20;
+        a = 30;
+
+        /* 
+            2.变量提升通过var定义的变量，会在当前作用域的最上方定义这个变量，但不会赋值即在上方输出的值为undefined
+        */
+        console.log("d:"+d);
+        var d =10;//undefined
+
+        /*
+            3.临时性死区  在函数作用域或局部作用域声明一个变量，在当前作用域不允许同名变量进来
+        */
+
+        // var a1 =10;
+        // function fn(){
+        //     console.log('a1:'+a1);
+        //     var a1 = 20;
+        // }
+        // fn();
+
+        let a1 =10;
+        function fn1(){
+            console.log('a1:'+a1);
+            let a1 = 20;
+        }
+        fn1();
+
+
+        /*
+            4.块级作用域 {}
+        */
+
+        // let a2 = 10;
+        // if(a2 > 5){
+        //     let flag = true;
+        // }
+        // console.log('flag:'+flag);
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+
+        组件分为父组件   和  子组件
+
+        components:{
+            "父组件":{
+                //找到id为...为子组件
+                //props  父组件向子组件传值  参数有点类似属性的意思(父组件中的属性)
+                template:'#...',
+                props:[参数]
+            }
+        }
+
+
+
+
+
+
+
+     -->
+
+    <div id="app">
+       
+        组件
+        <my-component name="你好" age="30"></my-component>
+    </div>
+
+    <template id="temp">
+        <div>
+            <h2>{{name}} --- {{age}}</h2>
+        </div>
+    </template>
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        new Vue({
+            el: "#app",
+            // 组件
+            components: {
+                // 父组件
+                "myComponent": {
+                    // 子组件   找到id为temp为子组件
+                    template: '#temp',
+                    //父组件 -》子组件  进行传值
+                    // props  进行传参
+                    props: ['name', 'age']
+                }
+            }
+        })
+
+
+    </script>
+    
+</body>
+</html>

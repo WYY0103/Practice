@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            div{
+                width: 200px;
+                height: 200px;
+                background:red;
+                /* 边框：大小 实线、虚线 颜色 */
+                /* 复合属性：border-size border-style boder-color */
+                /* solid(实线) dotted(圆点) dashed(虚线) none(无) */
+                border: 5px solid black;
+                /* 内边距  上 右 下 左 顺时针写大小*/
+                padding: 10px 30px 40px 50px ;
+                /* 外边距 上 右 下 左 都可单独设置*/
+                margin: 40px 50px 60px 70px;
+                /* 上与下对应，左与右对应， */
+            }
+        </style>
+    </head>
+
+    <!--
+        css盒模型
+        标准盒模型
+            元素占的宽度=内容宽度（width）+ border + padding
+        
+        怪异盒模型（ie6或者ie6以下版本的浏览器，当不写doctype，表现为怪异盒模型）
+            元素占的宽度=width值=（内容+border+padding），当设置border和padding时，内容值会缩小
+
+        css3中有一个语法（两种盒模型转化的方法）
+            box-sizing：border-box  怪异盒模型
+                        content-box 标准盒模型
+
+
+     -->
+    <body>
+        <!-- 边框 -->
+        <!-- 边距
+            内边距  内容与边框之间
+            外边距  边框以外
+        
+        -->
+        <div>
+            哈哈
+        </div>
+    </body>
+</html>

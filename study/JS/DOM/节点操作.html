@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <!-- 
+        节点操作  调用这些函数是父元素.
+        1 创建  document.createElement
+        2 插入  appendChild 在内部后边插入
+        3 删除  removeChild
+        4 插入  insertBefore()
+        5 替换  replaceChild()
+        
+    -->
+    <button id="delete">del</button>
+
+    <button id="insert">insert</button>
+    <button id="replace">replace</button>
+    <p id="p1">哈哈哈哈哈哈呵呵呵呵呵 </p>
+
+    <script>
+
+        // 
+        var oH2 = document.createElement('h2');
+        oH2.innerHTML = "ghghhgdfhgjfdhgfhjkl";
+
+        var oP = document.getElementById('p1');
+
+
+        // var btn = document.getElementById('delete');
+        var insertBtn = document.getElementById('insert');
+        var replaceBtn = document.getElementById('replace');
+
+        // btn.onclick = function(){
+        //     // 删除p
+        //     document.body.removeChild(oP);
+        // }
+
+        // document.body.appendChild(oH2);
+
+
+        insertBtn.onclick = function(){
+            document.body.insertBefore(oH2,insertBtn)
+        }
+        replaceBtn.onclick = function(){
+            document.body.replaceChild(oH2,oP);
+        }
+
+        // jquery
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

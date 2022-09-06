@@ -1,0 +1,65 @@
+{
+  "id": "3144262",
+  "name": "轮播图",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5090961",
+      "name": "大于号",
+      "font_class": "dayuhao1",
+      "unicode": "e71e",
+      "unicode_decimal": 59166
+    },
+    {
+      "icon_id": "20066926",
+      "name": "小于号",
+      "font_class": "xiaoyuhao11",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "4598257",
+      "name": "大于号",
+      "font_class": "dayuhao",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "4598262",
+      "name": "小于号",
+      "font_class": "xiaoyuhao2",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "14464438",
+      "name": "大于号",
+      "font_class": "xiaoyuhao",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "16608117",
+      "name": "小于号",
+      "font_class": "xiaoyuhao1",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "14852668",
+      "name": "大于号",
+      "font_class": "dayuhao-copy",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "20083118",
+      "name": "小于号",
+      "font_class": "xiaoyuhao1-copy",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    }
+  ]
+}

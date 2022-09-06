@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // object
+        var obj = {
+            a: 1,
+            b: 2,
+            c: {
+                d: 20
+
+            }
+        }
+        var obj2 =deepClone(obj);
+        obj.b = 0;
+        console.log(obj);
+        console.log(obj2);
+
+        // 基本数据类型
+        var a = 10;
+        var b = deepClone(a);
+        a =0;
+        console.log(a);
+        console.log(b);
+
+
+        // array
+        var arr = [['a','b'],2,3];
+        var arr2 =deepClone(arr);
+        arr[0][0] = 'c';
+        console.log(arr);
+        console.log(arr2);
+
+
+
+
+        function deepClone(obj) {
+            let tmp;
+            // 引用数据类型
+            if (typeof (obj) == "object") {
+                // 数组
+                if (Array.isArray(obj)) {
+                    tmp = [];
+                    for(let val of obj){
+                        tmp.push(deepClone(val));
+                    }
+                }
+                // 对象
+                else {
+                    tmp = {};
+                    for (key in obj) {
+                        tmp[key] = deepClone(obj[key]);
+                    }
+                }
+            }
+            // 基本数据类型
+            else {
+                tmp = obj;
+            }
+
+            return tmp;
+        }
+        
+    </script>
+
+</body>
+
+</html>

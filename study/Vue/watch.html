@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+
+        firstName:<input type="text" v-model="firstName">
+		lastName:<input type="text"  v-model="lastName">
+        {{firstName}}-----{{lastName}}
+
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                firstName:'zhang',
+		        lastName:'san',
+                fullName:'zhangsan'
+
+            },
+            watch:{
+                /*
+                    watch  不论是  添加还是删除  只要改变了  监听就时刻生效
+                    监听里面的函数参数问题  默认参数   
+                    第一个参数 newVal代表  最新的   第二个参数oldVal代表上一次的
+
+                    使用和计算属性是一模一样的  都是在页面当中{{函数名}}  
+                    区别是  只要改变了  我就时刻调用我的函数
+                */
+                firstName(newVal,oldVal){
+
+                    console.log(newVal,oldVal);
+                    this.fullName = this.firstName+this.lastName
+                },
+                lastName(){
+			      this.fullName = this.fullName + this.lastName;
+			  }
+
+
+            }
+        })
+    </script>
+    
+</body>
+</html>

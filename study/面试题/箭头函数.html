@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 箭头函数 -->
+
+    <script>
+
+        // 一般用const定义箭头函数，因为一般不会改变
+
+        const foo = ()=>{
+
+        }
+
+        // 可省略return   较为简单时
+        const f = ()=> "hello";
+
+        // this指向问题  指向父作用域
+
+        let a = 20;
+        let obj ={
+            a:10,//obj.a != a
+            foo:function(){
+                // 20
+                console.log(a);
+                // 10   指向obj.a
+                console.log(this.a);
+
+                function foo3(){
+                    // undefined(let无变量提升)   20(var)
+                    console.log(this.a);
+                }
+
+                foo2= () =>{
+                    // 10  指向父作用域
+                    console.log(this.a);
+                }
+
+
+
+                foo3();
+                foo2();
+            }
+        }
+
+       
+
+        // let j = 10;
+        // console.log(j);
+        // function fn(){
+            
+        //     console.log(this.a);
+        // }
+        // fn();
+
+        obj.foo();
+
+
+      
+    </script>
+    
+</body>
+</html>

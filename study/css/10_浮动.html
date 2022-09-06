@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /*  *：通配符 选中所有元素  */
+            *{
+                padding: 0px;
+                margin: 0px;
+            }
+            #div1{
+                width: 200px;
+                height: 200px;
+                background-color: red;
+                /* float:left|right|none */
+                float: left;
+            }
+
+            #div2{
+                width: 200px;
+                height: 200px;
+                background-color: blue;
+                float: left;
+            }
+
+            h2{
+                height: 100px;
+                background-color: black;
+            }
+
+            #list{
+                /* height: 200px; */
+                overflow: hidden;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- 浮动float   浮动的元素会脱离文档流，空间释放
+
+
+            子元素浮动会导致父元素塌陷
+                解决办法：1、给父元素添加一个高度
+                         2、给父元素添加  overflow：hidden
+ 
+
+        -->
+        <div id="list">
+            <div id="div1">
+
+            </div>
+    
+            <div id="div2">
+    
+            </div>
+        </div>
+
+        <h2>
+
+        </h2>
+    </body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="font/iconfont.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #con{
+            width: 750px;
+            height: 291px;
+            margin: 300px auto;
+            position: relative;
+        }
+
+       
+        #img-box img{
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: opacity 1s linear
+        }
+
+        #img-box .app{
+            opacity: 1;
+        }
+
+        #btn-box li{
+            width: 20px;
+            height: 20px;
+            list-style: none;
+            float: left;
+            background: black;
+            opacity: 0.5;
+            margin-right: 5px;
+            border-radius: 50%;
+            
+            
+        }
+
+        #btn-box{
+            width: 150px;
+            height: 30px;
+            background:rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            position: absolute;
+            bottom: 5px;
+            right: 40%;
+        }
+
+        #btn-box .btn{
+            background-color:bisque;
+        }
+        #con .box{
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            line-height: 50px;
+            position: absolute;         
+            top: 50%;
+            margin-top: -25px;
+            display: none;
+            
+        }
+        #con #right{
+             left: 0;
+             border-top-right-radius: 50%;
+             border-bottom-right-radius: 50%;
+        }
+        #con #left{
+            right: 0;
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="con">
+        <div id="img-box">
+            <img class="app" src="images/img01.jpg" alt="">
+            <img src="images/img02.jpg" alt="">
+            <img src="images/img03.jpg" alt="">
+            <img src="images/img04.jpg" alt="">
+            <img src="images/img05.jpg" alt="">
+            <img src="images/img06.jpg" alt="">
+
+
+        </div>
+        <ul id="btn-box">
+            <li class="btn"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+
+        </ul>
+
+        <div>
+            <div class="box" id="right">
+                <span class="iconfont icon-xiaoyuhao11"></span>
+            </div>
+            <div class="box" id="left">
+                <span class="iconfont icon-dayuhao1"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var btn_box = document.getElementById('btn-box');
+        var btn = btn_box.getElementsByTagName('li');
+
+        var img_box = document.getElementById('img-box');
+        var img = img_box.getElementsByTagName('img');
+
+        var con = document.getElementById('con');
+
+        var right = document.getElementById('right');
+        var left = document.getElementById('left');
+        var ind = 0;
+
+        for(var i =0;i < btn.length ;i++){
+
+            btn[i].index = i;
+
+            btn[i].onclick = function(){
+                change(this.index);
+                ind = this.index;
+            }
+        }
+
+        con.onmouseover = function(){
+            right.style.display = "block";
+            left.style.display = "block";
+            clearInterval(timer);
+
+        }
+
+        con.onmouseout = function(){
+            right.style.display = "none";
+            left.style.display = "none";
+            timer = setInterval(function(){
+            left.onclick();
+
+        },2000)
+
+        }
+
+        timer = setInterval(function(){
+            left.onclick();
+
+        },2000)
+
+        left.onclick = function(){
+            ind++;
+            if(ind >= img.length){
+                ind = 0;
+            }
+            change(ind);
+        }
+        right.onclick = function(){
+            ind--;
+            if(ind < 0){
+                ind = img.length-1;
+            }
+            change(ind);
+
+        }
+        function change(Index){
+            for(var j = 0; j < btn.length; j++){
+                    btn[j].className = "";
+
+                }
+                btn[Index].className = "btn";
+                img[Index].className = "app";
+        }
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

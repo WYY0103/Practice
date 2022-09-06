@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--设计一个函数DayOfYear(d)，它接收一个日期参数d，返回一个该日期是所在年份的第几天，如DayOfYear(2000,2,8)的返回值是39. -->
+
+    <script>
+
+        
+        var months=new Array(31,28,31,30,31,30,31,31,30,31,30,31);       
+        // var year=prompt("输入年份",2000);
+        // var month=prompt("输入月份(1-12)",10);
+        // var day=prompt("输入日期(1-31)",20);
+
+        function isLeadYear(year){
+                return ((year % 4 == 0 &&year % 100 !=0) || year % 400 ==0) ? true:false
+        }
+
+        function DayOfYear(year,month,day){
+            var sum = 0;
+            
+            if(isLeadYear(year)){
+                months[1]=29;
+            }
+            for(var i = 0;i < month-1 ; i++){
+                sum += months[i];
+            }
+            sum += day;
+            return sum;
+        }
+        
+        console.log(DayOfYear(2002,5,8));
+
+        
+        
+
+
+
+    </script>
+    
+</body>
+</html>

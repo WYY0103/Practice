@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        /* 选中紧邻div的p */
+        /* 
+            div + p{
+                background: #ff000f;
+            } 
+        */
+
+        /* 选中div后面所有符合条件的 */
+        /* 
+            div ~ p{
+                background: #ff000f;
+            } 
+        */
+
+
+        /* 属性选择器 */
+        /* 选中li下所有具有class这个属性 */
+        /*
+            li[class]{
+                background: black;
+            }
+        */
+
+
+        /* 属性名为aa的 */
+        /* 
+            li[class="aa"]{
+                background: red;
+            } 
+        */
+
+        /* 只要包含aa这个属性即可 */
+        /* 
+            li[class*="aa"]{
+                background: green;
+            } 
+        */
+
+        /* 选择具有class属性且属性值为以aa开头的字符串的li元素 */
+        /*
+            li[class^="aa"]{
+                background: red;
+            }
+        */
+
+         /* 选择具有class属性且属性值为以aa结尾的字符串的li元素 */
+        /*
+            li[class$="aa"]{
+                background: red;
+            }
+        */
+
+
+        /* 伪类选择器 */
+        /* 选中第一个孩子  */
+        /* 
+            li:first-child{
+                background: #ff000f;
+            } 
+        */
+        
+        /*  最后一个孩子*/
+        /* 
+            li:last-child{
+                background: #ff000f;
+            } 
+        */
+
+        /* 选中li中第几个孩子，有参数   有两个特殊值  even:偶数，odd:奇数*/
+        /* 
+            li:nth-child(2){
+                background: black;
+            }
+         */
+
+
+        /* 伪对象选择符 */
+        /* 加在相应内部的最后面   行元素    */
+        #div3::after{
+            content: "呵呵呵";
+        }
+        /* 加在相应内部的前面   行元素    必须有content属性*/ 
+        #div3::before{
+            content: "    ";
+        }
+
+
+        div{
+            width: 100px;
+            height: 100px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- 
+        选择器 
+        id选择器  
+        class选择器  
+        标签选择器  
+        属性选择器 
+        后代选择器  
+        子代选择器  
+        群组选择器
+        伪类选择器
+        伪元素选择器
+        
+     -->
+
+
+    <div>11111</div>
+    <p>2222</p>
+
+    <div>333</div>
+    <p>44444</p>
+
+
+    <ul>
+        <li>55555</li>
+        <li class="aa">6666</li>
+        <li class="aaanjkm">7777</li>
+        <li>8888</li>
+
+    </ul>
+
+
+    <div id="div3">hahahhaha</div>
+
+    <!-- 
+        E:disabled 禁止应用状态
+        E:enabled  匹配用户界面上处于可用状态的元素E
+    
+    -->
+    <button disabled>click</button>
+
+
+    <script>
+        var p =document.getElementsByTagName
+    </script>
+    
+</body>
+</html>

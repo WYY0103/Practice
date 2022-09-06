@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+        当对象中的属性值和属性名 已知时(提前声明过)，可以简写
+
+        合并对象  属性相同后面的覆盖前面的，不同属性直接添加
+            扩展运算符{...obj1,...obj2}
+            Object.assign(obj1,obj2)
+
+
+     -->
+
+
+    <script>
+
+        // var obj={
+        //     name : 'lisi',
+        //     age : 18,
+        //     eat : ()=>{
+
+        //     }
+        // }
+
+        var name ='';
+        var age =15;
+        var obj1 = {
+            name,
+            age,
+            eat(){
+
+            }
+        }
+
+        var obj1 ={
+            name :'wu',
+            age : 50,
+            school :'哈尔滨'
+        }
+
+        var obj2 ={
+            name :"zs",
+            age : 30,
+            eat:function(){
+                console.log('eat');
+            }
+        }
+
+        // var obj5 =Object.assign(obj1,obj2);
+        // console.log(obj5);
+        // obj5.eat();
+
+        var obj5 ={...obj1,...obj2};
+        console.log(obj5);
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

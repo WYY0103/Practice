@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #ball {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            background: red;
+            animation: run 2s linear infinite;
+        }
+
+        @keyframes run {
+            from {
+                margin-top: 0px;
+            }
+
+            to {
+                margin-top: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- <div id="ball">
+    </div> -->
+    <script>
+
+
+        // function swap(arr, low, high) {
+        //     var tmp = arr[low];
+        //     arr[low] = arr[high];
+        //     arr[high] = tmp;
+        //     return arr;
+        // }
+        // function QuickSort(arr, low, high) {
+        //     var key = arr[low];
+        //     var start = low;
+        //     var end = high;
+        //     while (end > start) {
+        //         while (end > start && arr[end] > key) { end--; }
+        //         swap(arr, start, end);
+        //         while (end > start && arr[start] < key) { start++; }
+        //         swap(arr, start, end);
+        //     }
+        //     while (low < start) QuickSort(arr, low, start - 1)
+        //     while (end < high) QuickSort(arr, end + 1, high)
+
+        // }
+
+
+
+        // var arr = [1, 5, 2, 6, 4];
+        // console.log(QuickSort(arr, 0, 5));
+
+        // function fn(arr){
+        //     var newArr = [];
+        //     arr.map(item =>{
+        //         if(Array.isArray(item)){
+        //             newArr = newArr.concat(fn(item));
+        //         }else{
+        //             newArr.push(item);
+        //         }
+        //     })
+        //     return newArr;
+        // }
+
+        // var arr = [1, 2, [3, 4, [5, 6]]];
+        // console.log(fn(arr));
+
+
+        var arr = [
+            {
+                name: '孙大神'
+            },
+            [
+                {
+                    name: '李白'
+                },
+                {
+                    name: '李大爷'
+                }
+            ],
+            {
+                name: '杜甫'
+            },
+            {
+                name: '杜康'
+            },
+            [
+                {
+                    name: '扫把星'
+                },
+                {
+                    name: '玉皇大帝',
+                    work: 'boss'
+                }
+            ]
+        ]
+
+        var innerArr = []
+        function flatObj(arr, obj = {}) {
+            arr.forEach(item => {
+                if (Object.prototype.toString.call(item) === '[object Object]') {
+                    let flag = true;
+                    for (const prop in item) {
+                        if (Array.isArray(item[prop])) {
+                            flag = false;
+                            flatObj(item[prop], obj);
+                        } else {
+                            obj[prop] = item[prop];
+                        }
+                    }
+                    flag && innerArr.push(JSON.parse(JSON.stringify(obj)));
+                } 
+                else if (Object.prototype.toString.call(item) === '[object Array]') {
+                    flatObj(item, obj);
+                }
+            });
+        }
+        flatObj(arr)
+        console.log(innerArr);
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            /* 
+                1文本阴影   四个参数
+                <length>：第1个长度值用来设置对象的阴影水平偏移值。可以为负值
+                <length>：第2个长度值用来设置对象的阴影垂直偏移值。可以为负值
+                <length>：如果提供了第3个长度值则用来设置对象的阴影模糊值。不允许负值
+                <color>：设置对象的阴影的颜色。
+            */
+            text-shadow: 5px 4px 4px #f00;
+           
+            width: 200px;
+            height: 50px;
+            background: honeydew;
+            border: 1px solid grey;
+
+             /* 
+                2文本溢出...   对于文本溢出将其单行省略显示省略号，三个缺一不可
+             
+             */
+             text-overflow: ellipsis;
+             white-space: nowrap;
+             overflow: hidden;
+
+             /* 
+                3网络字体：在轮播图font中 
+                4透明度：rgba
+                5边框圆角：四个参数(左右下左) 
+            */
+             border-radius: 5px;
+
+             /* 
+                6盒子阴影 
+                <length>：第 1 个长度值定义元素的阴影水平偏移值。正值，阴影出现在元素右侧；负值，则阴影出现在元素左侧
+                <length>：第 2 个长度值定义元素的阴影垂直偏移值。正值，阴影出现在元素底部；负值，则阴影出现在元素顶部
+                <length>：第 3 个长度值定义元素的阴影模糊值半径（如果提供了）。该值越大阴影边缘越模糊，若该值为0，阴影边缘不出现模糊。不允许负值
+                <length>：第 4 个长度值定义元素的阴影外延值（如果提供了）。正值，阴影将向四面扩展；负值，则阴影向里收缩
+                <color>：定义元素阴影的颜色。如果该值未定义，阴影颜色将默认取当前最近的文本颜色
+            */
+             box-shadow: 4px 5px 3px 4px rgba(0,0,0,0.3);
+
+             /* 7边框图片  border-image */
+
+
+
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">
+        hahhahahahhahhahahah hahhahahah hahhahahah hahhahahah hahhahahah hahhahahah hahhahahah hahhahahah  
+    </div>
+    
+</body>
+</html>

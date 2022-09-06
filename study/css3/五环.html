@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            border-width: 10px;
+            border-style: solid;
+            border-radius: 50%;
+            position: absolute;
+        }
+        #blue{
+            border-color: blue;
+            left: 0;
+            top: 0;
+        }
+        div::after{
+            content: "";
+            border-width: 10px;
+            border-style: solid;
+            border-radius: 50%;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 200px;
+            height: 200px;
+        }
+        #blue::after{
+            border-color:blue;
+            /* 层级  
+                定位的元素会发生：后面定位的元素会覆盖前面定位的元素
+                用z-index可以提高层级，避免后面的元素覆盖前面
+                z-index:默认0,1代表提高层级
+             */
+            z-index: 1;
+            /* transparent将颜色设为透明 */
+            
+            border-bottom-color: transparent;
+            
+        }
+        #black::after{
+            border-color: black;
+            z-index: 1;
+            border-left-color: transparent;
+
+
+
+        }
+        #red::after{
+            border-color: red;
+            z-index: 1;
+            border-left-color: transparent;
+        }
+        #yellow::after{
+            border-color: yellow;
+            /* z-index: 1;
+            border-left-color: transparent;
+            border-top-color: transparent; */
+        }
+        #green::after{
+            border-color: green;
+            /* z-index: 1; */
+            z-index:1;
+            border-top-color: transparent;
+            border-right-color: transparent;
+
+        }
+        #black{
+            border-color: black;
+            top: 0;
+            left: 230px;
+        }
+        #red{
+            border-color: red;
+            top: 0;
+            left: 460px;
+        }
+        #yellow{
+            border-color: yellow;
+            top: 100px;
+            left: 100px;
+        }
+        #green{
+            border-color: green;
+            top: 100px;
+            left: 330px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="blue"></div>
+    <div id="black"></div>
+    <div id="red"></div>
+    <div id="yellow"></div>
+    <div id="green"></div>
+    
+</body>
+</html>

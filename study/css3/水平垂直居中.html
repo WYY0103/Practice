@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #con{
+            width: 1000px;
+            height: 1000px;
+            /* position: relative; */
+            background: gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #000000;
+            /* position: absolute; 
+            left: 50%;
+            top: 50%;
+            margin-top: -100px;
+            margin-left: -100px; */
+           
+
+
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+        已知宽高的子元素在父元素中水平 垂直居中
+            1定位 left:50% top:50%  
+                但要修改margin-left和margin-top，修改距离一般为元素width/2和height/2(原因 他会将元素定位在50%的点，而不是将元素的中心定位在50%)
+            
+            2 display: flex  父元素 align-items:center和justify-content: center将其横轴和纵轴居中
+
+        已知宽度的块元素水平居中  margin:0 auto
+     -->
+
+     <div id="con">
+         <div id="div1">
+
+    </div>
+     </div>
+    
+    
+</body>
+</html>

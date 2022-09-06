@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #f00;
+            /* 当修改left和top时不移动时则考虑定位 */
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="div1"></div>
+
+    <!-- 
+        鼠标的事件有一个参数e
+        1、按下鼠标触发按下事件(元素触发)，计算元素距离body的left和top(用offsetLeft和offsetTop)
+        2、用鼠标距离body的left和top(e.clientX,e.clientY) - 元素距离body的left和top = 鼠标距离元素的距离，
+            这个距离始终不变。
+        3、当鼠标滑动时触发滑动事件(元素触发,但用文档触发可避免鼠标滑动元素跟不上的问题)，鼠标滑动元素跟着走，所以元素的left和top进行修改，
+            修改的距离 = 鼠标距离body的left和top  - 鼠标距离元素的距离。
+
+            其实元素距离body的left和top就是就是修改的距离，刚开始按下鼠标之所以能计算出来是因为此时鼠标没滑动，所以距离
+            值是固定的，可用其计算鼠标距离元素的距离，当鼠标滑动时，这个值会随之而改变，而鼠标距离元素的值却不变，
+            所以用鼠标距离body的距离 - 鼠标距离元素的距离 = 元素要跟随移动的距离。
+
+
+
+
+     -->
+
+    <script>
+
+
+        var div1 = document.getElementById('div1');
+
+        // 鼠标按下触发按下事件
+        div1.onmousedown = function(e){
+
+            var disX = e.clientX - div1.offsetLeft;
+            var disY = e.clientY - div1.offsetTop;
+            // 鼠标滑动触发滑动事件
+
+            document.onmousemove = function(e){
+
+                div1.style.left = e.clientX - disX + "px";
+                div1.style.top = e.clientY - disY + "px";
+            }
+
+
+        }
+
+        // 鼠标抬起则滑动事件停止
+        div1.onmouseup = function(){
+            document.onmousemove = null;
+        }
+
+    </script>
+    
+</body>
+</html>

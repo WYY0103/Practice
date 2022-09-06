@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+
+        {{msg}}
+        {{count}}
+
+        <!-- v-on  绑定事件 -->
+        <button v-on:click="fn">click</button>
+        <!-- 简写 @事件-->
+        <!-- 获取原生dom下的事件e  用$event 传入方法，方法形参包括e-->
+        <button @click="fn(2,$event)">click</button>
+        <div @click="fn1()">
+            1111
+            <!-- 事件修饰符  .stop  阻止默认行为 -->
+            <div @click.stop="fn2()">
+                2222
+            </div>
+        </div>
+
+        <!-- 按键修饰符  .enter -->
+        <input @keyup.enter="fn3()" type="text">
+
+
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        new Vue({
+            el:"#app",
+            data:{
+                msg:'hello',
+                count:1
+
+            },
+            methods:{
+                fn(num,e){
+                    // console.log(111);
+                    // 修改data中的值  this来取data中的值(this指向Vue对象)
+                    // this.msg = 'haha';
+                    console.log(e);
+                    this.count+=num;
+                },
+                fn1(){
+                    console.log(111);
+                },
+                fn2(){
+                    console.log(222);
+                },
+                fn3(){
+                    console.log(33333);
+                }
+            }
+
+        })
+
+    </script>
+    
+</body>
+</html>

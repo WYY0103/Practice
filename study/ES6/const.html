@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+        const 定义常量，无法修改
+
+        两种情况：基本数据类型，无法修改
+                 引用数据类型，定义的地址  指针不能改变，地址中存放的值可以变化，若不想变化，则采用Object.freeze()进行冻结
+        
+        const不能重复声明
+        const无变量提升
+        const暂时性死区 |临时失效区
+        const块级作用域{},无法访问块级作用域里的变量
+
+
+
+     -->
+
+
+     <script>
+
+         const a = 10;
+        //  a = 30;
+         console.log(a);
+
+
+         const arr =[1,2,3];
+         Object.freeze(arr);
+         arr[0] = 20;
+         
+         console.log(arr);
+
+         
+     </script>
+    
+</body>
+</html>

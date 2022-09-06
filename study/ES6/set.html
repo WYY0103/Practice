@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        // 数组去重  set类似于数组
+        // 因为set类似数组，所以要将其转化为数组才可
+        var arr =[1,1,2,5,6,2,3];
+
+        // function clearRepeat(arr){
+        //     // var arr1 = new Set(arr);
+        //     // var arr2 = Array.from(arr1);
+        //     // return arr2;
+
+        //     return Array.from(new Set(arr));
+
+        // }
+
+        // console.log(clearRepeat(arr));
+
+
+        // var set = new Set(['red', 'green']);
+        // set.forEach((key, value) => {
+        //     console.log(key, value);
+        // })
+
+        // arr.forEach((value,key) =>{
+        //     value++;
+        //     console.log(key + ':' + value);
+        // })
+
+
+        var newArr = [];
+        arr.filter((value) =>{
+            if(value + 2 > 10){
+                newArr.push(value);
+            }
+            // console.log('newArr' + newArr);
+            return newArr;
+        })
+
+        console.log(newArr);
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

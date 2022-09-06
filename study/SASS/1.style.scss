@@ -1,0 +1,154 @@
+// 定义变量：用$,放在顶部
+// 单行注释  .css文件中不会保留
+// import引入外部scss文件
+@import './reset.scss';
+$bgColor:#000;
+$whiteColor:#eee;
+$keyname: 'color';
+
+
+/*
+    多行注释  编译后.css文件中会保留
+
+*/
+
+/*!
+    强制显示  会在三个文件中都保留
+
+*/
+
+div{
+    background: $bgColor;
+    width: 100px;
+    // #{变量}  差值语句   属性名如果是变量可以这么写
+    #{$keyname}:$bgColor
+}
+
+// 选择器嵌套使用
+#list{
+    width: 100px;
+    height: 20px;
+    li{
+        font-size: 12px;
+        p{
+            // padding-left: 20px;
+            // padding-top: 50px;
+            padding: {
+                top: 30px;
+                left: 30px;
+            }
+        }
+    }
+    //&引用父选择器
+    // &相当于使用父选择器
+    &-inner{
+        color: $bgColor;
+    } 
+
+}
+
+.link{
+    color: $bgColor;
+    &:hover{
+        color: #eee;
+    }
+}
+
+// @mixin定义一个混合宏  有些元素样式一样，可放在一起
+// 定义混合宏可带参数   参数可设默认值  设默认值的时候要所有参数都设置
+@mixin logo-btn($width:20px,$height:20px,$border_radius:5px){
+    width: $width;
+    height: $height;
+    line-height: 40px;
+    text-align: center;
+    border-radius: $border_radius;
+    color: $whiteColor;
+    background: $bgColor;
+}
+
+// 通过@include 去调用设置的混合宏
+.login-btn{
+    @include logo-btn(100px,50px,10px);
+}
+
+.submit-logo{
+    @include logo-btn($height:50px);
+}
+
+.btn-logo{
+    @include logo-btn();
+}
+
+.wrapper{
+    width: 100px;
+    height: 30px;
+    font-size: 30px;
+    .inner{
+        // 继承@extend 继承某一个选择器的样式
+        // 如果继承的选择器有子选择器  会一并继承过来
+        // 编译的时候  会将相同的样式转化成分组选择器
+        @extend .wrapper;
+        padding: 20px;
+    }
+}
+
+#main{
+    @extend .wrapper;
+    margin: 30px;
+}
+
+$width : 5px;
+@function changeWidth($width){
+    @return $width * 2;
+}
+
+$list:1px solid #000;
+div{
+    width: changeWidth($width);
+    border-top: $list;
+}
+
+$colorList:red,blue,pink;
+p{
+    color: nth($colorList,2 );
+}
+
+$length : 1px;
+li{
+    @if $length>0 and $length<2 {
+        font-size: 10px;       
+    }@else if $length >2 and $length <5{
+        font-size: 12px;
+    }
+    @else{
+        font-size: 20px;
+    }
+}
+
+@for $i from 1 through 3{
+    .list-#{$i}{
+        width: $i * 100px;
+    }
+}
+
+@for $i from 1 to 3{
+    .none-#{$i}{
+        width: $i * 100px;
+    }
+}
+
+
+@each $var in $colorList{
+    .content-#{$var}{
+        color: $var;
+    }
+}
+
+
+$imgname : 'xxx.png';
+div{
+    background: url('../images/#{to-tpper-case($imgname)}');
+}
+
+
+

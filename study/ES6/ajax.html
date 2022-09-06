@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <!-- 
+        ajax原理 不刷新页面更新网页
+        步骤：
+            1.创建 XMLHttpRequest对象  var xhttp =new XMLHttpRequest();
+            2.向服务器发送请求
+                xhttp.open()  参数：请求方式get(数据量小)|post(数据量大)   请求地址  是否异步 
+                xhttp.send()
+            3.服务器响应  onreadystatechange方法
+                xhttp.onreadystatechange = function (){
+                    //判断readyState == 4(状态是否为请求已完成且响应已就绪)  并且  status == 200(状态是否成功)
+                    if (this.readyState == 4 && this.status == 200){
+                        相应操作。。。
+                    }
+                } 
+                    
+                readyState
+                0: 请求未初始化
+                1: 服务器连接已建立
+                2: 请求已接收
+                3: 正在处理请求
+                4: 请求已完成且响应已就绪
+
+                status
+                200: "OK"
+                403: "Forbidden"
+                404: "Page not found"
+
+
+     -->
+
+
+    <script>
+
+        // 异步
+        // setTimeout(()=>{
+        //     console.log(3)
+        // },3000
+
+
+        // ajax原理 不刷新页面更新网页
+        // 1 创建 XMLHttpRequest 对象
+        var xhttp;
+        if (window.XMLHttpRequest) {
+            xhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        // 2 向服务器发送请求
+        // 参数：请求方式get|post   请求地址  是否异步 
+        xhttp.open("GET", "http://admin.gxxmglzx.com/tender/test/get_type", true);
+        xhttp.send();
+
+        // 3  服务器响应
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        };
+
+        console.log('11111')
+
+
+
+        /*
+            readyState
+
+            0: 请求未初始化
+            1: 服务器连接已建立
+            2: 请求已接收
+            3: 正在处理请求
+            4: 请求已完成且响应已就绪
+
+            status
+
+            200: "OK"
+            403: "Forbidden"
+            404: "Page not found"
+        */
+
+
+
+
+    </script>
+
+</body>
+
+</html>

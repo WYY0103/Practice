@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff000f;
+            animation: run 2s linear 1s 2;
+        }
+
+        /* 
+            animation 动画   无需触发条件，自动执行
+                参数:动画名  
+                     持续时间  
+                     运动方式  
+                     延迟时间  
+                     执行次数  infinite(无限循环) | <number>(具体数字)
+                     循环中是否反向运动    normal(正常) | reverse(反向) | alternate(先正再反交替进行) | alternate-reverse(先反再正交替进行)                     
+                    检索或设置对象动画时间之外的状态  none | forwards(动画结束时的状态) | backwards(动画开始时的状态) | both (动画结束或开始的状态)
+                
+                定义动画:@keyframes 动画名  一帧一帧
+        
+        
+        */
+        @keyframes run{
+            10%{
+                width: 500px;
+            }
+            50%{
+                width: 800px;
+            }
+            100%{
+                width: 200px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">
+
+    </div>
+    
+</body>
+</html>

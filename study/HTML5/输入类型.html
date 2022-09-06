@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<!-- 
+        HTML5 增加了多个新的输入类型：
+            color  调色卡 
+            date   日期
+            datetime
+            datetime-local
+            email  邮箱校验
+            month
+            number 输入数字
+            range  进度条
+            search 输入框有清除功能
+            tel    移动端小键盘
+            time   时间
+            url    地址校验
+            week
+ -->
+<body>
+
+    <!-- action 表单提交的地址 -->
+    <form action="">
+        <!-- email 对输入内容进行邮箱校验（自带校验规则） -->
+        email:<input type="email"><br>
+        
+        <!-- url 对输入内容进行网址校验 （自带校验规则）-->
+        url:<input type="url"><br>
+        
+        <!-- color 调色卡 -->
+        color:<input type="color"><br>
+
+        <!-- date 选择日期 -->
+        date:<input type="date"><br>
+
+        <!--  time 选择时间-->
+        time:<input type="time"><br>
+
+        <!-- 
+            range 滑块 进度条 例如音量
+            step属性：定义滑动时候的步长      
+        -->
+        range:<input type="range" step="20"><br>
+
+        <!-- search 输入框  可以输入内容  但有清除功能 -->
+        search:<input type="search"><br>
+
+        <!-- 
+            number 用于应该包含数字值的输入字段 能对数字做出限制
+            max	规定输入字段的最大值
+            min	规定输入字段的最小值
+            step	规定输入字段的合法数字间隔  每次增加或减少的值
+
+            当输入的数值，在最小值+step属性没有输入的数值的情况下，认为不是有效值，会将其调整为有效值，再执行step属性
+
+
+        -->
+        number:<input type="number" max="19" min="9" step="2"><br>
+
+        <!-- tel 移动端会唤出小键盘 -->
+        tel:<input type="tel" maxlength=""><br>
+
+        <!-- 
+            file 选择文件  
+            accept属性 选中文件的类型   例如：image/png   选中image图片类型  但必须是png格式
+        -->
+        file:<input type="file" accept="image/png"><br>
+
+        <!-- 
+            通过datalist数据列表来创建数据，将input与datalist进行关联，
+            这样可以进行模糊查询（当你输入搜索内容时，会根据你输入的内容给你推荐类似的搜索内容）
+            label属性用来区分相同value
+         -->
+        <input type="text" list="data1">
+        <datalist id="data1">
+            <option value="111111" label="w"></option>
+            <option value="2222222"></option>
+            <option value="111111" label="z"></option>
+
+        </datalist>
+
+
+
+
+
+        <br><input type="submit">
+
+        
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!-- DOCTYPE生明文档类型 -->
+<!DOCTYPE html>
+<!--  html标签（属性）  根元素-->
+<html lang="en">
+    <!-- 头 head-->
+    <head>
+        <!-- meta标签  charset="UTF-8字符编码 -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- meta标签  用于页面响应式 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>页面</title>
+    </head>
+
+    <!-- 体body（用户） -->
+    <body>
+        <!-- 标题 h1-h6  字体大小不同-->
+        <h1>标题</h1>
+        <h2>标题</h2>
+        <h3>标题</h3>
+        <h4>标题</h4>
+        <h5>标题</h5>
+        <h6>标题</h6>
+
+        <!-- 段落 p  放一段文字，无放大加粗 -->
+        <p>文字</p>
+
+        <!-- 图片 img   
+            src:图片路径（绝对路径、相对路径） 绝对路径即固定的，无需更改
+            alt:图片无法加载时显示的文字
+            title:鼠标悬浮时显示文字-->
+        <!-- <img src="https://img.alicdn.com/tfs/TB1sQTyENYaK1RjSZFnXXa80pXa-502-380.jpg_240x240q90.jpg" alt=""> -->
+        <!-- 寻找同级下的图片（代码与图片同级） -->
+        <!-- <img src="imag01.jpg" alt=""> -->
+        <!-- 寻找文件夹下的图片（代码与文件夹是同级）-->
+        <!-- <img src="image/imag02.jpg" alt="">  -->
+        <!-- 通过一个文件夹寻找另一个文件夹的图片（两个文件夹同级）  ../:跳回上一级-->
+        <img src="../image/imag01.jpg" alt="这是一个图片" title="图片"> 
+
+
+        <!-- 超链接 a  href:跳转地址   target="_blank":跳转打开新窗口-->
+        <a href="http://www.baidu.com" target="_blank">百度</a>
+
+
+        <!-- 列表  -->
+        <!-- 无序列表 -->
+        <ul>
+            <li>列表</li>
+        </ul>
+
+        <!-- 有序列表 -->
+        <ol>
+            <li>列表1</li>
+        </ol>
+
+
+        <!-- 区块div   划分布局 -->
+        <!-- 块级元素   display:block  自己一行 可以设置宽高
+             行级元素   display:inline 多个一行 不可设置宽高
+             行级块元素 display:inline-block 多个一行 可以设置宽高
+             隐藏       display:none
+             display 默认  可通过手动修改将块级变成行级
+        -->
+        <div>div</div>
+        <div>div</div>
+
+        <span>span</span>
+        <span>span</span>
+
+
+        <!-- 举例行元素、块元素
+             块元素：h p ul li div
+             行元素：a span em i strong b
+        -->
+        <!-- 字体倾斜  em i-->
+        <em>字体</em>
+        <i>字体3</i>
+        <!-- 字体加粗 strong：加粗
+                      b：加粗且重点-->
+        <strong>字体1</strong>
+        <b>字体2</b>
+
+
+        
+
+
+
+    </body>
+</html>

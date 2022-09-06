@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        var person = {
+            name : 'zs',
+            age : 18,
+            address : {
+                area : 'taikang',
+                num : 10000
+            }
+        }
+
+        // 封装深克隆的方法
+        // function deepClone(obj){
+        //     // 定义一个空对象 用于接收克隆后的结果
+        //     var tmp = {}
+        //     // 循环对象中的每个属性
+        //     for (key in obj){
+        //         // 判断属性类型，为对象的话继续深克隆
+        //         if(typeof (obj[key]) == 'object'){
+        //             tmp[key] = deepClone(obj[key]);
+        //         }
+        //         // 为基本数据类型无需克隆，直接赋值
+        //         else{
+        //             tmp[key] = obj[key];
+        //         }
+        //     }
+        //     return tmp;
+        // }
+
+
+        // var p1 = deepClone(person);
+        // p1.age = 50;
+        // console.log(person);
+        // console.log(p1);
+
+        var p1 =person;
+        p1.age = 50;
+        console.log(person);
+        console.log(p1);
+
+
+        // 传进来一个数组
+        // function deepClone(data){
+        //     var tmp ={}
+        //     if(typeof(data) == 'object'){
+        //         tmp = Array.isArray(data) ? []:{}
+        //         for (key in data){
+        //             if(typeof(data) == 'object'){
+        //                 tmp[key] = deepClone(data[key]);
+        //             }
+        //             else{
+        //                 tmp[key] = data[key];
+        //             }
+        //         }
+
+
+        //     }
+
+        //     else{
+        //         tmp[key] = data[key];
+        //     }
+
+        //     return tmp;
+        // }
+
+        // var arr ={
+
+        //     address:[1,2],
+        //     name: 'zs'
+
+        // };
+        // var p1 = deepClone(arr);
+        // console.log(p1);
+
+        
+    </script>
+    
+</body>
+</html>

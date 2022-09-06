@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="div1">haha</div>
+    <ul>
+        <li>111</li>
+        <li class="aa">222</li>
+        <li>22222</li>
+        <li class="aa">2222</li>
+    </ul>
+
+
+
+    <input type="radio" name="sex">男
+    <input type="radio" name="sex">女
+
+
+    <script>
+/*
+        // 通过id获取元素  返回dom元素
+        var div1 = document.getElementById('div1');
+        console.log(div1);
+        // 通过JS给元素添加样式   优先级最高（相当于内联样式）
+        div1.style.background = 'green';
+
+
+        // 通过标签名获取元素    返回数组  
+        var ali = document.getElementsByTagName('li');
+        // 给其添加样式
+        // for(var i = 0; i< ali.length;i++){
+        //     ali[i].style.background = "blue";
+        // }
+
+        */
+
+
+        // 通过class名获取元素   返回数组
+        var li = document.getElementsByClassName('aa');
+        console.log(li);
+        for(var j = 0;j< li.length;j++){
+            li[j].style.background = "blue";
+        }
+
+
+        // 通过name获取元素  返回数组
+         var arr =document.getElementsByName("sex");
+         console.log(arr);
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

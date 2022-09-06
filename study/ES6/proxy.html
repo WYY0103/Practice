@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+
+        proxy  代理  拦截作用
+
+        set  修改对象属性时进行拦截
+        get  获取对象属性时进行拦截
+
+        参数：要修改的对象，{set()，get()}
+
+        //pro为代理对象
+        var pro = new Proxy(修改的对象,{
+            //参数  原对象  当前获取的属性  代理对象
+            get(target,key,property){
+                return target[key];
+            },
+            //参数  原对象  修改的属性  修改后的值
+            set(target,key,value){
+                return target[key] = value;
+            }
+        })
+
+        console.log(pro.属性);//获取属性，get
+        pro.属性 = xx;//设置属性，set
+
+
+
+     -->
+
+    <script>
+
+        var obj = {
+            name: 'zs'
+        }
+
+
+        var pro = new Proxy(obj, {
+            get(target, key, property) {
+                console.log(target, key, property);
+                return target[key];
+            },
+            set(target, key, value) {
+                console.log('set', target, key, value);
+                return target[key] = value;
+            }
+        })
+
+        //    console.log( pro.name )
+
+        pro.name = 'lisi'
+
+        console.log(pro.name)
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

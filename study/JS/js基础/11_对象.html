@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //对象  属性和方法
+        var obj = {
+            name:'zs',
+            age:18,
+            school:'xx',
+            eat:function(){
+                console.log('我正在吃。。。。');
+            }
+        }
+        // 对象.属性
+        // 对象.方法()
+        console.log(obj.name);
+        obj.eat();
+
+        // 获取动态属性 obj[key]
+        for(key in obj){
+            console.log(key)
+            console.log(obj[key]);
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

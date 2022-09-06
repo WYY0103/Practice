@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <!-- 
+
+        给元素邦事件
+     -->
+
+     <!-- 1 第一种 -->
+     <!-- <div id="div1" onclick="alert(1)">1111</div> -->
+
+     <!-- 2 第二种 -->
+     <!-- 给元素绑定两个事件时，会产生覆盖，后面的会覆盖前面的 -->
+     <div id="div1">1111</div>
+     <script>
+
+        //  var div1 = document.getElementById('div1');
+        //  div1.onclick = function(){
+        //      console.log(111);
+        //  }
+
+        //  div1.onclick = function(){
+        //      console.log(222);
+        //  }
+
+        //  3 第三种  添加事件监听(绑定事件，可以给元素添加多个事件)  三个参数：事件名  事件处理函数  true(事件捕获) | false(事件冒泡)
+        // 事件流 冒泡和捕获 
+        // 冒泡 从里向外(儿子->父元素)  捕获 从外向里(父元素->儿子)
+        // 即有捕获 又有冒泡 ->先捕获，再冒泡
+
+        div1.addEventListener('click',function(){
+            console.log(111);
+        },false)
+
+        div1.addEventListener('click',function(){
+            console.log(222);
+        },false)
+     </script>
+
+
+
+        </script>
+
+
+
+    
+</body>
+</html>

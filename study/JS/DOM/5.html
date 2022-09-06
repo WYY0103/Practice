@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #con{
+            width: 500px;
+            height: 500px;           
+        }
+
+        #list li{
+            width: 52px;
+            height: 32px;
+            list-style: none;
+            float: left;
+            border: 1px solid #000;
+            margin-right: 5px;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 32px;
+
+        }
+
+        #list{
+            overflow: hidden;
+        }
+
+        #list-info{
+            width: 350px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+
+        #list .selected{
+            background: #f00;
+        }
+        .cla{
+            display: none;
+        }
+
+        .act{
+            display: block;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <div id="con">
+        <ul id="list">
+            <li class="info selected">实事</li>
+            <li class="info">新闻</li>
+            <li class="info">体育</li>
+        </ul>
+
+        <div id="list-info">
+            <p class="cla act">实时报道</p>
+            <p class="cla">新闻报道</p>
+            <p class="cla">体育报道</p>
+        </div>
+
+        
+
+    </div>
+
+    <script>
+
+        // var list = document.getElementById('list');
+        // var info = list.getElementsByTagName('li');
+        var info = document.getElementsByClassName('info');
+
+        for(var i = 0;i < info.length;i++){
+
+            info[i].onclick=function(){
+
+                for(var j = 0;j < info.length;j++){
+                    info[j].className = "";
+                }
+                this.className = "info selected";
+
+            }
+        }
+
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">
+
+    </div>
+
+    <script>
+        // 对当前对象的引用
+        // 1 事件中 谁的事件this就是谁
+        
+        var div1 = document.getElementById('div1');
+        div1.onclick = function(){
+            console.log(this);
+            console.log(1111);
+        }
+        
+
+        // 2 定时器中  this就指向window  原因：定时器是window下的方法
+        /*
+        var div1 = document.getElementById('div1');
+        div1.onclick = function(){
+            window.setTimeout(function(){
+                console.log(this);
+            },2000)
+        }
+        */
+
+        // 3 对象中  谁.方法  this就指向‘谁’
+        // var obj = {
+        //     name : "zs",
+        //     age : 18,
+        //     eat : function(){
+        //         console.log(this);
+        //     }
+        // }
+
+        // obj.eat();
+
+        // // 4 函数中  全局下的函数  this指向window
+        // function fn(){
+        //     console.log(this);
+        // }
+
+        // fn();
+
+
+    </script>
+    
+</body>
+</html>

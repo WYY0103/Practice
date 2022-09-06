@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #con{
+                width: 520px;
+                height: 280px;
+                position:relative;
+                top: 300px;
+                left: 700px;
+
+            }
+            #image-list{
+                width: 520px;
+                height: 280px;
+            }
+            .imag{
+                display: none;
+            }
+            .image{
+                display: block;
+            }
+            #list .info{
+                width: 20px;
+                height: 20px;
+                list-style: none;
+                float: left;
+                border: 1px solid #000;
+                border-radius: 5px;
+                margin-right: 10px;
+                text-align: center;
+                line-height: 20px;              
+            }
+            #list{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+            .select{
+                background: rgba( 102,102,102, 0.4);
+                color: bisque;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="con">
+            <div id="image-list">
+                <img class="imag image" src="../imges/img01.jpg" alt="">
+                <img class="imag" src="../imges/img02.jpg" alt="">
+                <img class="imag" src="../imges/img03.jpg" alt="">
+                <img class="imag" src="../imges/img04.jpg" alt="">
+                <img class="imag" src="../imges/img05.jpg" alt="">
+
+            </div>
+
+
+            <ul id="list">
+                <li class="info select">1</li>
+                <li class="info">2</li>
+                <li class="info">3</li>
+                <li class="info">4</li>
+                <li class="info">5</li>
+            </ul>
+
+        </div>
+
+
+        <script>
+
+            var select = document.getElementsByClassName('info');
+            var img = document.getElementsByClassName('imag');
+
+            for(var i = 0; i < select.length; i++){  
+
+                select[i].index = i;
+
+                select[i].onclick = function(){
+                    for(var j =0;j<select.length;j++){
+
+                        select[j].className = "info";
+                        img[j].className = "imag";
+
+                    }
+                    this.className="info select";
+                    img[this.index].className="imag image";
+
+                }
+            }
+
+
+
+
+        </script>
+        
+    </body>
+</html>
