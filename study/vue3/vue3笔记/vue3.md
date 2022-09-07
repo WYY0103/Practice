@@ -79,7 +79,7 @@ watch(
 # 组件
 
 一 、组件中传递数据
-1 在Vue3中 直接使用defineProps函数去接收别的组件传递的属性
+1 在Vue3中 直接使用defineProps函数去接收别的组件传递的属性 父给子传递
 父组件
 <!-- <MyInput type="password" placeholder="请输入密码..." /> -->
 子组件
@@ -110,3 +110,13 @@ mybutton组件
 父组件
 <!-- <MyButton type="error" @submit="onSubmit" @click="onSave" /> -->
 <!-- function onSubmit() {} -->
+
+# 依赖注入 某一组件声明的数据任何一个组价都可获取，无需一层一层向下传递（所谓的这种依赖注入是一级一级的关系才可以上下随便传递 比如爷爷-父亲-孙子，若是二爷给孙子传递，则不可以，不可以出现交叉的数据传递 因为爷爷和二爷是兄弟关系）
+
+注意：组件间这种注入是直系之间可以，兄弟之间是不允许向下给其他兄弟传递
+1 在提供数据的组件共享数据，使用数据的组件注入进行使用
+2 共享数据的函数provide 两个参数（注入的时候的名，共享的值）
+<!-- provide('shareData', shareData); -->
+3 注入的函数inject 通过共享的名字注入
+<!-- const data = inject('shareData') -->
+4 共享的数据为响应式，那么注入的数据也是响应式
