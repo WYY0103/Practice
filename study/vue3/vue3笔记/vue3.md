@@ -75,3 +75,38 @@ watch(
 2 获取组件实例
 <!-- const comp = getCurrentInstance();  --> 获取组件的实例
 <!-- comp.refs.input.focus(); -->
+
+# 组件
+
+一 、组件中传递数据
+1 在Vue3中 直接使用defineProps函数去接收别的组件传递的属性
+父组件
+<!-- <MyInput type="password" placeholder="请输入密码..." /> -->
+子组件
+<!-- const props = defineProps(['placeholder', 'type']); -->
+<!-- <input :type="type" :placeholder="placeholder" /> -->
+
+2 插槽传递数据 通过内容区来传递 父给子传递
+mybutton子组件 home父组件
+home组件
+<!--<mybutton>保存</mybutton> -->
+mybutton组件
+<!--<button><slot></slot></button> -->
+这样父组件中内容区域的内容会传递到子组件中，同时父组件中可以添加属性，会自动绑定到子组件的根节点上面
+<!-- <mybutton type="password">保存</mybutton> -->
+子组件中可以获取该属性来添加样式：<!--button[type='info']{} -->
+
+二、组件中传递函数
+1 子组件内部触发父组件给子组件绑定的那些事件，需要在子组件内部使用defineEmits函数先定义一遍这些事件,之后在点击子组件的时候通过emit来触发父组件的事件
+（emit(event-name, 给事件处理函数传入数据)）
+子组件
+<!-- const emit = defineEmits(['submit', 'click','xxxx']) -->
+<!-- <button @click="onButtonClick"></button> -->
+<!-- 
+    function onButtonClick() {
+    emit('submit', 12);
+    } 
+-->
+父组件
+<!-- <MyButton type="error" @submit="onSubmit" @click="onSave" /> -->
+<!-- function onSubmit() {} -->
