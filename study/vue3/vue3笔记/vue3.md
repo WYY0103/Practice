@@ -120,3 +120,25 @@ mybutton组件
 3 注入的函数inject 通过共享的名字注入
 <!-- const data = inject('shareData') -->
 4 共享的数据为响应式，那么注入的数据也是响应式
+
+# pinia
+
+1 就是vue2中的vuex，不过用法与vuex有所不同
+2 与vuex一样，包括state，getters，actions
+3 与vuex不同的是，没有mutation，在用actions里面的方法时，就直接引用即可，无需dispatch。
+4 使用步骤
+（1）在store文件下创建仓库文件，对外暴露仓库
+（2）export const usexxxStore = defineStore({
+  state:()=>({}),
+  getters:()=>({}),
+  actions:()=>({})
+})
+（3）在使用仓库的地方
+import { useCounterStore } from '../stores/counter';
+const counterStore = useCounterStore();
+直接使用里面的state和action
+<!-- <p>{{counterStore.counter}}</p> -->
+<!-- <button @click="counterStore.increment()">+</button> -->
+（4）也可以将仓库中的状态解构出来
+解构state、getters：const { counter, doubleCount } = storeToRefs(counterStore);
+解构action：const { increment } = counterStore;
