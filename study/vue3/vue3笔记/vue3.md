@@ -142,3 +142,5 @@ const counterStore = useCounterStore();
 （4）也可以将仓库中的状态解构出来
 解构state、getters：const { counter, doubleCount } = storeToRefs(counterStore);
 解构action：const { increment } = counterStore;
+
+# vue3+ts
